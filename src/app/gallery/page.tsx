@@ -25,17 +25,6 @@ export default function GalleryPage() {
       <section className="py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <GalleryLightbox categories={gallery.categories} />
-
-          {/* Note for admin */}
-          <div className="mt-12 p-6 bg-amber-50 rounded-xl border border-amber-200 text-center">
-            <p className="text-amber-800 font-medium">
-              Portfolio images can be managed through the{" "}
-              <a href="/admin/login" className="underline">
-                Admin Panel
-              </a>
-              .
-            </p>
-          </div>
         </div>
       </section>
     </div>
