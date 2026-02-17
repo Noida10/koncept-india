@@ -33,7 +33,7 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Section — full-width slideshow background */}
-      <section className="relative overflow-hidden text-white min-h-[70vh] sm:min-h-[80vh] flex items-center">
+      <section className="relative overflow-hidden text-white min-h-[50vh] sm:min-h-[55vh] flex items-center">
         {/* Slideshow images fill the entire hero */}
         <HeroProductCarousel products={home.heroProducts} />
 
