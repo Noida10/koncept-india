@@ -1,7 +1,4 @@
-import fs from "fs";
-import path from "path";
-
-const CONTENT_FILE = path.join(process.cwd(), "src/data/content.json");
+import contentData from "@/data/content.json";
 
 export type SiteContent = {
   siteInfo: {
@@ -56,10 +53,5 @@ export type SiteContent = {
 };
 
 export function getContent(): SiteContent {
-  const raw = fs.readFileSync(CONTENT_FILE, "utf-8");
-  return JSON.parse(raw);
-}
-
-export function saveContent(content: SiteContent): void {
-  fs.writeFileSync(CONTENT_FILE, JSON.stringify(content, null, 2), "utf-8");
+  return contentData as SiteContent;
 }

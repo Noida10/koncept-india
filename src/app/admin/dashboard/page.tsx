@@ -2,74 +2,39 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { SiteContent } from "@/lib/content";
+import contentData from "@/data/content.json";
 
-type Lead = {
-  id: string;
-  name: string;
-  email: string;
-  phone: string;
-  inquiry: string;
-  createdAt: string;
-};
-
-type Tab = "home" | "about" | "products" | "gallery" | "clients" | "siteInfo" | "leads";
+type Tab = "home" | "about" | "products" | "gallery" | "clients" | "siteInfo";
 
 export default function AdminDashboard() {
   const router = useRouter();
   const [content, setContent] = useState<SiteContent | null>(null);
-  const [leads, setLeads] = useState<Lead[]>([]);
   const [activeTab, setActiveTab] = useState<Tab>("home");
-  const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    fetchContent();
-    fetchLeads();
-  }, []);
-
-  async function fetchContent() {
-    const res = await fetch("/api/content");
-    if (res.status === 401) {
+    if (typeof window !== "undefined" && sessionStorage.getItem("admin_auth") !== "true") {
       router.push("/admin/login");
       return;
     }
-    const data = await res.json();
-    setContent(data);
-  }
+    setContent(contentData as SiteContent);
+  }, [router]);
 
-  async function fetchLeads() {
-    const res = await fetch("/api/contact");
-    if (res.ok) {
-      const data = await res.json();
-      setLeads(data);
-    }
-  }
-
-  async function saveContent() {
+  function downloadJSON() {
     if (!content) return;
-    setSaving(true);
-    setMessage("");
-    try {
-      const res = await fetch("/api/content", {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(content),
-      });
-      if (res.ok) {
-        setMessage("Content saved successfully!");
-      } else {
-        setMessage("Failed to save content.");
-      }
-    } catch {
-      setMessage("Error saving content.");
-    } finally {
-      setSaving(false);
-      setTimeout(() => setMessage(""), 3000);
-    }
+    const blob = new Blob([JSON.stringify(content, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "content.json";
+    a.click();
+    URL.revokeObjectURL(url);
+    setMessage("Downloaded! Replace src/data/content.json and redeploy.");
+    setTimeout(() => setMessage(""), 5000);
   }
 
-  async function handleLogout() {
-    await fetch("/api/auth", { method: "DELETE" });
+  function handleLogout() {
+    sessionStorage.removeItem("admin_auth");
     router.push("/admin/login");
   }
 
@@ -88,7 +53,6 @@ export default function AdminDashboard() {
     { id: "gallery", label: "Gallery" },
     { id: "clients", label: "Clients" },
     { id: "siteInfo", label: "Site Info" },
-    { id: "leads", label: `Leads (${leads.length})` },
   ];
 
   return (
@@ -102,18 +66,15 @@ export default function AdminDashboard() {
             </div>
             <span className="font-bold text-gray-900">Admin Panel</span>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center gap-3">
             {message && (
-              <span className={`text-sm font-medium ${message.includes("success") ? "text-green-600" : "text-red-600"}`}>
-                {message}
-              </span>
+              <span className="text-sm font-medium text-green-600">{message}</span>
             )}
             <button
-              onClick={saveContent}
-              disabled={saving}
-              className="px-4 py-2 bg-amber-700 hover:bg-amber-800 disabled:bg-amber-400 text-white text-sm font-semibold rounded-lg transition-colors"
+              onClick={downloadJSON}
+              className="px-4 py-2 bg-amber-700 hover:bg-amber-800 text-white text-sm font-semibold rounded-lg transition-colors"
             >
-              {saving ? "Saving..." : "Save All Changes"}
+              Download content.json
             </button>
             <a href="/" className="text-sm text-gray-500 hover:text-gray-700">
               View Site
@@ -128,9 +89,17 @@ export default function AdminDashboard() {
         </div>
       </header>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      {/* How it works banner */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-sm text-blue-800">
+          <strong>How to update the website:</strong> Edit content below, click &quot;Download content.json&quot;,
+          then replace <code className="bg-blue-100 px-1 rounded">src/data/content.json</code> in the repository and redeploy.
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {/* Tabs */}
-        <div className="flex flex-wrap gap-2 mb-8">
+        <div className="flex flex-wrap gap-2 mb-6">
           {tabs.map((tab) => (
             <button
               key={tab.id}
@@ -154,7 +123,6 @@ export default function AdminDashboard() {
           {activeTab === "gallery" && <GalleryEditor content={content} setContent={setContent} />}
           {activeTab === "clients" && <ClientsEditor content={content} setContent={setContent} />}
           {activeTab === "siteInfo" && <SiteInfoEditor content={content} setContent={setContent} />}
-          {activeTab === "leads" && <LeadsViewer leads={leads} />}
         </div>
       </div>
     </div>
@@ -167,18 +135,16 @@ function InputField({
   label,
   value,
   onChange,
-  type = "text",
 }: {
   label: string;
   value: string;
   onChange: (val: string) => void;
-  type?: string;
 }) {
   return (
     <div>
       <label className="block text-sm font-medium text-gray-700 mb-1">{label}</label>
       <input
-        type={type}
+        type="text"
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none text-sm text-gray-900"
@@ -385,7 +351,7 @@ function ProductsEditor({ content, setContent }: EditorProps) {
             id: `category-${Date.now()}`,
             name: "New Category",
             description: "",
-            items: [],
+            items: [] as string[],
           };
           setContent({
             ...content,
@@ -446,7 +412,7 @@ function GalleryEditor({ content, setContent }: EditorProps) {
             id: `gallery-${Date.now()}`,
             name: "New Gallery Section",
             description: "",
-            images: [],
+            images: [] as string[],
           };
           setContent({
             ...content,
@@ -485,7 +451,7 @@ function ClientsEditor({ content, setContent }: EditorProps) {
       />
 
       {clients.categories.map((cat, catIdx) => (
-        <div key={cat.name} className="border border-gray-200 rounded-lg p-4">
+        <div key={catIdx} className="border border-gray-200 rounded-lg p-4">
           <InputField
             label="Category Name"
             value={cat.name}
@@ -584,45 +550,6 @@ function SiteInfoEditor({ content, setContent }: EditorProps) {
           />
         </div>
       </div>
-    </div>
-  );
-}
-
-function LeadsViewer({ leads }: { leads: Lead[] }) {
-  return (
-    <div>
-      <h3 className="text-lg font-bold text-gray-900 mb-4">
-        Contact Form Leads ({leads.length})
-      </h3>
-      {leads.length === 0 ? (
-        <p className="text-gray-500 text-center py-8">No leads yet.</p>
-      ) : (
-        <div className="space-y-4">
-          {[...leads].reverse().map((lead) => (
-            <div
-              key={lead.id}
-              className="border border-gray-200 rounded-lg p-4"
-            >
-              <div className="flex justify-between items-start mb-2">
-                <div>
-                  <h4 className="font-semibold text-gray-900">{lead.name}</h4>
-                  <p className="text-sm text-gray-500">{lead.email} {lead.phone && `| ${lead.phone}`}</p>
-                </div>
-                <span className="text-xs text-gray-400">
-                  {new Date(lead.createdAt).toLocaleDateString("en-IN", {
-                    day: "numeric",
-                    month: "short",
-                    year: "numeric",
-                    hour: "2-digit",
-                    minute: "2-digit",
-                  })}
-                </span>
-              </div>
-              <p className="text-gray-600 text-sm">{lead.inquiry}</p>
-            </div>
-          ))}
-        </div>
-      )}
     </div>
   );
 }

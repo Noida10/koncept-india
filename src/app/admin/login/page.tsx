@@ -2,34 +2,22 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
+const ADMIN_PASSWORD = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || "admin123";
+
 export default function AdminLoginPage() {
   const router = useRouter();
-  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
 
-  async function handleLogin(e: React.FormEvent) {
+  function handleLogin(e: React.FormEvent) {
     e.preventDefault();
     setError("");
-    setLoading(true);
 
-    try {
-      const res = await fetch("/api/auth", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password }),
-      });
-
-      if (res.ok) {
-        router.push("/admin/dashboard");
-      } else {
-        setError("Invalid username or password");
-      }
-    } catch {
-      setError("Something went wrong. Please try again.");
-    } finally {
-      setLoading(false);
+    if (password === ADMIN_PASSWORD) {
+      sessionStorage.setItem("admin_auth", "true");
+      router.push("/admin/dashboard");
+    } else {
+      setError("Invalid password");
     }
   }
 
@@ -49,23 +37,8 @@ export default function AdminLoginPage() {
           className="bg-white rounded-xl shadow-sm border border-gray-200 p-8 space-y-5"
         >
           <div>
-            <label htmlFor="username" className="block text-sm font-medium text-gray-700 mb-1">
-              Username
-            </label>
-            <input
-              type="text"
-              id="username"
-              required
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none text-gray-900"
-              placeholder="admin"
-            />
-          </div>
-
-          <div>
             <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
-              Password
+              Admin Password
             </label>
             <input
               type="password"
@@ -84,15 +57,10 @@ export default function AdminLoginPage() {
 
           <button
             type="submit"
-            disabled={loading}
-            className="w-full px-6 py-3 bg-amber-700 hover:bg-amber-800 disabled:bg-amber-400 text-white font-semibold rounded-lg transition-colors"
+            className="w-full px-6 py-3 bg-amber-700 hover:bg-amber-800 text-white font-semibold rounded-lg transition-colors"
           >
-            {loading ? "Signing in..." : "Sign In"}
+            Sign In
           </button>
-
-          <p className="text-xs text-gray-400 text-center">
-            Default credentials: admin / admin123
-          </p>
         </form>
       </div>
     </div>

@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
 
+const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "";
+
 export default function ContactForm() {
   const [form, setForm] = useState({
     name: "",
@@ -14,21 +16,42 @@ export default function ContactForm() {
     e.preventDefault();
     setStatus("sending");
 
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      if (res.ok) {
-        setStatus("sent");
-        setForm({ name: "", email: "", phone: "", inquiry: "" });
-      } else {
+    // If Web3Forms key is configured, send via API
+    if (WEB3FORMS_KEY) {
+      try {
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            access_key: WEB3FORMS_KEY,
+            subject: `New inquiry from ${form.name} - Koncept India`,
+            from_name: form.name,
+            ...form,
+          }),
+        });
+        if (res.ok) {
+          setStatus("sent");
+          setForm({ name: "", email: "", phone: "", inquiry: "" });
+        } else {
+          setStatus("error");
+        }
+      } catch {
         setStatus("error");
       }
-    } catch {
-      setStatus("error");
+      return;
     }
+
+    // Fallback: open mailto
+    const subject = encodeURIComponent(`Inquiry from ${form.name}`);
+    const body = encodeURIComponent(
+      `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\n\n${form.inquiry}`
+    );
+    window.open(
+      `mailto:Konceptindia.enterprises@gmail.com?subject=${subject}&body=${body}`,
+      "_self"
+    );
+    setStatus("sent");
+    setForm({ name: "", email: "", phone: "", inquiry: "" });
   }
 
   return (
