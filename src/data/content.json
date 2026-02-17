@@ -23,31 +23,31 @@
       {
         "title": "Luxury Rigid Boxes",
         "tagline": "Premium packaging for luxury brands",
-        "image": "",
+        "image": "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?q=80&w=800&auto=format&fit=crop",
         "href": "/gallery"
       },
       {
         "title": "Corporate Stationery",
         "tagline": "Professional branding that makes an impression",
-        "image": "",
+        "image": "https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=800&auto=format&fit=crop",
         "href": "/products#paper-printing"
       },
       {
         "title": "Eco-Friendly Amenities",
         "tagline": "Sustainable hotel amenity kits",
-        "image": "",
+        "image": "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?q=80&w=800&auto=format&fit=crop",
         "href": "/gallery"
       },
       {
         "title": "Leather Collections",
         "tagline": "Handcrafted bags, wallets & accessories",
-        "image": "",
+        "image": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=800&auto=format&fit=crop",
         "href": "/products#leather-products"
       },
       {
         "title": "Custom Gift Sets",
         "tagline": "Curated corporate gifting solutions",
-        "image": "",
+        "image": "https://images.unsplash.com/photo-1549465220-1a8b9238f581?q=80&w=800&auto=format&fit=crop",
         "href": "/products#corporate-gifting"
       }
     ],
@@ -176,25 +176,45 @@
         "id": "luxury-packaging",
         "name": "Luxury & Rigid Packaging",
         "description": "Heart-shaped boxes, nested boxes with inserts, magnetic closure boxes, bottle packaging, jewellery packaging.",
-        "images": []
+        "images": [
+          "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?q=80&w=600&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1607344645866-009c320b63e0?q=80&w=600&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?q=80&w=600&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1549465220-1a8b9238f581?q=80&w=600&auto=format&fit=crop"
+        ]
       },
       {
         "id": "hotel-amenities",
         "name": "Eco-Friendly Hotel Amenities",
         "description": "Bamboo tongue cleaners, wooden combs, biodegradable shower caps, shaving kits, and dental kits customized for clients like The Lalit and Radisson.",
-        "images": []
+        "images": [
+          "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?q=80&w=600&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=600&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=600&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1571781418606-70265b9cce90?q=80&w=600&auto=format&fit=crop"
+        ]
       },
       {
         "id": "fabric-bags",
         "name": "Fabric & Custom Bags",
         "description": "Drawstring fabric bags, premium paper carry bags, and customized corporate backpacks.",
-        "images": []
+        "images": [
+          "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=600&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=600&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=600&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1591561954557-26941169b49e?q=80&w=600&auto=format&fit=crop"
+        ]
       },
       {
         "id": "leather-baskets",
         "name": "Leather/PU Baskets",
         "description": "High-end, stitched leatherette storage baskets with handles in various shapes and colors.",
-        "images": []
+        "images": [
+          "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=600&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1473188588951-1cfd0de9aeac?q=80&w=600&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=600&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=600&auto=format&fit=crop"
+        ]
       }
     ]
   },
