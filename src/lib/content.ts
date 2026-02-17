@@ -13,6 +13,7 @@ export type SiteContent = {
     heroTitle: string;
     heroSubtitle: string;
     heroCta: string;
+    heroProducts: { title: string; tagline: string; image: string; href: string }[];
     quickLinks: { title: string; description: string; icon: string; href: string }[];
     clientStrip: string[];
   };

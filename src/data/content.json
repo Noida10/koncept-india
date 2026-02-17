@@ -17,6 +17,38 @@
     "heroTitle": "Premium Printing & Packaging Solutions",
     "heroSubtitle": "Welcome to Koncept India Enterprises. We are one of the leading high-quality printers equipped with in-house facilities featuring the latest state-of-the-art technology.",
     "heroCta": "Explore Our Services",
+    "heroProducts": [
+      {
+        "title": "Luxury Rigid Boxes",
+        "tagline": "Premium packaging for luxury brands",
+        "image": "",
+        "href": "/gallery"
+      },
+      {
+        "title": "Corporate Stationery",
+        "tagline": "Professional branding that makes an impression",
+        "image": "",
+        "href": "/products#paper-printing"
+      },
+      {
+        "title": "Eco-Friendly Amenities",
+        "tagline": "Sustainable hotel amenity kits",
+        "image": "",
+        "href": "/gallery"
+      },
+      {
+        "title": "Leather Collections",
+        "tagline": "Handcrafted bags, wallets & accessories",
+        "image": "",
+        "href": "/products#leather-products"
+      },
+      {
+        "title": "Custom Gift Sets",
+        "tagline": "Curated corporate gifting solutions",
+        "image": "",
+        "href": "/products#corporate-gifting"
+      }
+    ],
     "quickLinks": [
       {
         "title": "Printing Services",

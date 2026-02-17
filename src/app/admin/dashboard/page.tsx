@@ -237,6 +237,81 @@ function HomeEditor({ content, setContent }: EditorProps) {
       <InputField label="CTA Button Text" value={home.heroCta} onChange={(v) => update("heroCta", v)} />
       <ListEditor label="Client Strip Names" items={home.clientStrip} onChange={(v) => update("clientStrip", v)} />
 
+      {/* Hero Products Showcase */}
+      <div>
+        <h4 className="text-sm font-medium text-gray-700 mb-3">Hero Product Showcase (Carousel)</h4>
+        {home.heroProducts.map((product, i) => (
+          <div key={i} className="border border-gray-200 rounded-lg p-4 mb-3">
+            <div className="flex justify-between items-center mb-3">
+              <span className="text-xs font-semibold text-gray-400 uppercase">Product {i + 1}</span>
+              <button
+                onClick={() => {
+                  const updated = home.heroProducts.filter((_, idx) => idx !== i);
+                  setContent({ ...content, home: { ...home, heroProducts: updated } });
+                }}
+                className="text-xs text-red-500 hover:text-red-700"
+              >
+                Remove
+              </button>
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              <InputField
+                label="Title"
+                value={product.title}
+                onChange={(v) => {
+                  const updated = [...home.heroProducts];
+                  updated[i] = { ...updated[i], title: v };
+                  setContent({ ...content, home: { ...home, heroProducts: updated } });
+                }}
+              />
+              <InputField
+                label="Link"
+                value={product.href}
+                onChange={(v) => {
+                  const updated = [...home.heroProducts];
+                  updated[i] = { ...updated[i], href: v };
+                  setContent({ ...content, home: { ...home, heroProducts: updated } });
+                }}
+              />
+            </div>
+            <div className="mt-3">
+              <InputField
+                label="Tagline"
+                value={product.tagline}
+                onChange={(v) => {
+                  const updated = [...home.heroProducts];
+                  updated[i] = { ...updated[i], tagline: v };
+                  setContent({ ...content, home: { ...home, heroProducts: updated } });
+                }}
+              />
+            </div>
+            <div className="mt-3">
+              <InputField
+                label="Image URL (leave empty for gradient placeholder)"
+                value={product.image}
+                onChange={(v) => {
+                  const updated = [...home.heroProducts];
+                  updated[i] = { ...updated[i], image: v };
+                  setContent({ ...content, home: { ...home, heroProducts: updated } });
+                }}
+              />
+            </div>
+          </div>
+        ))}
+        <button
+          onClick={() => {
+            const updated = [
+              ...home.heroProducts,
+              { title: "New Product", tagline: "", image: "", href: "/products" },
+            ];
+            setContent({ ...content, home: { ...home, heroProducts: updated } });
+          }}
+          className="text-sm text-amber-700 hover:text-amber-800 font-medium"
+        >
+          + Add Hero Product
+        </button>
+      </div>
+
       <div>
         <h4 className="text-sm font-medium text-gray-700 mb-3">Quick Links</h4>
         {home.quickLinks.map((link, i) => (
