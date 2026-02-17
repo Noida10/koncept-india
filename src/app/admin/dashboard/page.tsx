@@ -235,6 +235,34 @@ function HomeEditor({ content, setContent }: EditorProps) {
       <InputField label="Hero Title" value={home.heroTitle} onChange={(v) => update("heroTitle", v)} />
       <TextAreaField label="Hero Subtitle" value={home.heroSubtitle} onChange={(v) => update("heroSubtitle", v)} />
       <InputField label="CTA Button Text" value={home.heroCta} onChange={(v) => update("heroCta", v)} />
+
+      {/* Hero Background Image */}
+      <div className="border border-gray-200 rounded-lg p-4">
+        <h4 className="text-sm font-medium text-gray-700 mb-3">Hero Background Image</h4>
+        <InputField
+          label="Background Image URL (paste any image URL)"
+          value={home.heroBackground}
+          onChange={(v) => update("heroBackground", v)}
+        />
+        {home.heroBackground && (
+          <div className="mt-3">
+            <p className="text-xs text-gray-500 mb-2">Preview:</p>
+            <div className="relative h-32 rounded-lg overflow-hidden">
+              <img
+                src={home.heroBackground}
+                alt="Hero background preview"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/75 to-gray-900/60" />
+              <span className="absolute bottom-2 left-3 text-white text-xs font-medium">With dark overlay applied</span>
+            </div>
+          </div>
+        )}
+        <p className="mt-2 text-xs text-gray-400">
+          Tip: Use free images from Unsplash — e.g. https://images.unsplash.com/photo-ID?w=1920&amp;q=80
+        </p>
+      </div>
+
       <ListEditor label="Client Strip Names" items={home.clientStrip} onChange={(v) => update("clientStrip", v)} />
 
       {/* Hero Products Showcase */}
