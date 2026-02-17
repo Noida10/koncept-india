@@ -1,0 +1,203 @@
+{
+  "siteInfo": {
+    "companyName": "Koncept India Enterprises",
+    "tagline": "Premium Printing & Packaging Solutions",
+    "phone": "+91 – 88603 31991",
+    "email": "Konceptindia.enterprises@gmail.com",
+    "registeredOffice": {
+      "address": "B-213, 3rd Floor, Back Side, Naraina Industrial Area, Phase - 1, New Delhi, Delhi 110028, India",
+      "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.0!2d77.14!3d28.63!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sNaraina+Industrial+Area!5e0!3m2!1sen!2sin!4v1"
+    },
+    "branchOffice": {
+      "address": "7.2 Miles Tonk Road, Behind Wood Villa, Sanganer, Jaipur 302029",
+      "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.0!2d75.78!3d26.82!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sSanganer+Jaipur!5e0!3m2!1sen!2sin!4v1"
+    }
+  },
+  "home": {
+    "heroTitle": "Premium Printing & Packaging Solutions",
+    "heroSubtitle": "Welcome to Koncept India Enterprises. We are one of the leading high-quality printers equipped with in-house facilities featuring the latest state-of-the-art technology.",
+    "heroCta": "Explore Our Services",
+    "quickLinks": [
+      {
+        "title": "Printing Services",
+        "description": "Multi-colour Offset, Digital, Screen, UV & Leaf Printing with precision and excellence.",
+        "icon": "print",
+        "href": "/products#paper-printing"
+      },
+      {
+        "title": "Corporate Gifting",
+        "description": "Curated premium gifts for corporate events, branding, and client relationships.",
+        "icon": "gift",
+        "href": "/products#corporate-gifting"
+      },
+      {
+        "title": "Leather Products",
+        "description": "Handcrafted leather bags, wallets, and accessories for the discerning professional.",
+        "icon": "briefcase",
+        "href": "/products#leather-products"
+      },
+      {
+        "title": "Custom Packaging",
+        "description": "Luxury rigid boxes, eco-friendly solutions, and bespoke packaging designs.",
+        "icon": "package",
+        "href": "/products#paper-printing"
+      }
+    ],
+    "clientStrip": [
+      "JW Marriott",
+      "Hyatt",
+      "BMW",
+      "Bacardi",
+      "Pullman",
+      "Novotel",
+      "Fairmont",
+      "W Hotels",
+      "Raffles",
+      "DLF"
+    ]
+  },
+  "about": {
+    "title": "About Koncept India Enterprises",
+    "overview": [
+      "Koncept India Enterprises is dedicated to giving the best quality service and meeting committed delivery schedules.",
+      "We have been providing printing services to our clients over the years to their entire satisfaction."
+    ],
+    "capabilities": [
+      "We offer multi-colour Offset Printing, Digital Printing, Screen Printing, Leaf Printing, UV Printing, and associated services.",
+      "We boast an in-house graphics designing unit capable of designing, color correction, and proofing using high-end PCs and Macintosh systems.",
+      "A synchronized proofing system is available to convert desired jobs into prints for proofing purposes."
+    ],
+    "visionMission": [
+      "To recognize the customer's right to Quality, Services, Timely Delivery, and Reasonable Cost.",
+      "To ensure maximum satisfaction to the clients.",
+      "To continue to maintain ethical practices within a legal, social, and personal conscience framework.",
+      "To maintain a high degree of efficiency and attain international standards.",
+      "Achieving quality through people and technology.",
+      "We share our knowledge and experience with clients and suggest key innovations to enhance their value proposition.",
+      "We believe excellence in print is best achieved by a fusion of individual work and technology.",
+      "We are passionate and dedicated to innovation."
+    ]
+  },
+  "products": {
+    "title": "Products & Services",
+    "subtitle": "Comprehensive printing, gifting, and packaging solutions tailored to your brand.",
+    "categories": [
+      {
+        "id": "paper-printing",
+        "name": "Paper Printing",
+        "description": "High-quality printing solutions for every business need.",
+        "items": [
+          "Leaflets / Fliers",
+          "Corporate Stationary",
+          "Newsletters / Magazines",
+          "Calendars",
+          "Labels / Tags",
+          "Catalogues / Books / Brochures",
+          "Coffee Table Books",
+          "Carry Bags",
+          "Wedding Invitations / Greeting Cards",
+          "Danglers / P.O.P Material",
+          "Invoice Jackets",
+          "Notepads, Diaries",
+          "Personalized Stationary",
+          "Packaging Boxes"
+        ]
+      },
+      {
+        "id": "corporate-gifting",
+        "name": "Corporate Gifting",
+        "description": "Premium gifts for corporate branding and client engagement.",
+        "items": [
+          "Pens, Pencils",
+          "Showpieces",
+          "Gift Sets",
+          "Phone Covers",
+          "Power Banks",
+          "Sticky Notes",
+          "T-shirts, Caps",
+          "Mugs"
+        ]
+      },
+      {
+        "id": "leather-products",
+        "name": "Leather Products",
+        "description": "Handcrafted leather goods for professionals and enterprises.",
+        "items": [
+          "Laptop Bags",
+          "Gym Bags",
+          "Duffle Bags",
+          "Passport Holders",
+          "Tablet Sleeves",
+          "Laptop Covers / Laptop Sleeves",
+          "Wallets / Money Clips"
+        ]
+      }
+    ]
+  },
+  "gallery": {
+    "title": "Gallery & Portfolio",
+    "subtitle": "A showcase of our finest work across printing, packaging, and corporate solutions.",
+    "categories": [
+      {
+        "id": "luxury-packaging",
+        "name": "Luxury & Rigid Packaging",
+        "description": "Heart-shaped boxes, nested boxes with inserts, magnetic closure boxes, bottle packaging, jewellery packaging.",
+        "images": []
+      },
+      {
+        "id": "hotel-amenities",
+        "name": "Eco-Friendly Hotel Amenities",
+        "description": "Bamboo tongue cleaners, wooden combs, biodegradable shower caps, shaving kits, and dental kits customized for clients like The Lalit and Radisson.",
+        "images": []
+      },
+      {
+        "id": "fabric-bags",
+        "name": "Fabric & Custom Bags",
+        "description": "Drawstring fabric bags, premium paper carry bags, and customized corporate backpacks.",
+        "images": []
+      },
+      {
+        "id": "leather-baskets",
+        "name": "Leather/PU Baskets",
+        "description": "High-end, stitched leatherette storage baskets with handles in various shapes and colors.",
+        "images": []
+      }
+    ]
+  },
+  "clients": {
+    "title": "Our Clients",
+    "subtitle": "Trusted by leading hospitality brands and corporate enterprises across India.",
+    "categories": [
+      {
+        "name": "Hospitality Sector",
+        "clients": [
+          "JW Marriott (New Delhi, Bangalore, Walnut Grove)",
+          "Andaz Hyatt New Delhi & Hyatt Regency New Delhi",
+          "Grand Hyatt Gurgaon",
+          "Pullman and Novotel New Delhi",
+          "Novotel (Bangalore, Kolkata, Lucknow)",
+          "Aloft Aerocity New Delhi",
+          "Fairmont Jaipur",
+          "Ibis (Aerocity New Delhi, Gurgaon)",
+          "Holiday Inn Manesar",
+          "Pride Plaza Aerocity",
+          "Raffles Udaipur",
+          "W Goa",
+          "Techpark Hotels Pvt Ltd"
+        ]
+      },
+      {
+        "name": "Corporate & Luxury Brands",
+        "clients": [
+          "BMW Group",
+          "Bacardi India Pvt Ltd",
+          "Maxxiss Tyre India",
+          "TVS India",
+          "Pernod Ricard India",
+          "Oma Living (Unit of Hero Group)",
+          "DLF Camellias"
+        ]
+      }
+    ]
+  }
+}
