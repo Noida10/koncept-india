@@ -14,6 +14,7 @@ export type SiteContent = {
     heroSubtitle: string;
     heroCta: string;
     heroBackground: string;
+    heroTextColor: "light" | "dark";
     heroProducts: { title: string; tagline: string; image: string; href: string }[];
     quickLinks: { title: string; description: string; icon: string; href: string }[];
     clientStrip: string[];

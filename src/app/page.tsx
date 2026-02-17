@@ -33,7 +33,7 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Section — split layout with product carousel */}
-      <section className="relative text-white overflow-hidden">
+      <section className={`relative overflow-hidden ${home.heroTextColor === "dark" ? "text-gray-900" : "text-white"}`}>
         {/* Background image layer */}
         {home.heroBackground ? (
           <div
@@ -43,19 +43,33 @@ export default function HomePage() {
         ) : (
           <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-amber-900" />
         )}
-        {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/75 to-gray-900/60"></div>
+        {/* Overlay for text readability */}
+        <div className={`absolute inset-0 ${
+          home.heroTextColor === "dark"
+            ? "bg-gradient-to-r from-white/80 via-white/60 to-white/40"
+            : "bg-gradient-to-r from-gray-900/90 via-gray-900/75 to-gray-900/60"
+        }`}></div>
         {/* Decorative elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-amber-700/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-        <div className="absolute bottom-0 left-0 w-72 h-72 bg-amber-600/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+        <div className={`absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 ${
+          home.heroTextColor === "dark" ? "bg-amber-400/10" : "bg-amber-700/10"
+        }`}></div>
+        <div className={`absolute bottom-0 left-0 w-72 h-72 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 ${
+          home.heroTextColor === "dark" ? "bg-amber-300/10" : "bg-amber-600/10"
+        }`}></div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left: Text content */}
             <div>
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-amber-700/20 border border-amber-700/30 rounded-full mb-6">
-                <div className="w-1.5 h-1.5 bg-amber-400 rounded-full animate-pulse"></div>
-                <span className="text-amber-300 text-xs font-semibold uppercase tracking-wider">
+              <div className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6 ${
+                home.heroTextColor === "dark"
+                  ? "bg-amber-700/10 border border-amber-700/20"
+                  : "bg-amber-700/20 border border-amber-700/30"
+              }`}>
+                <div className="w-1.5 h-1.5 bg-amber-600 rounded-full animate-pulse"></div>
+                <span className={`text-xs font-semibold uppercase tracking-wider ${
+                  home.heroTextColor === "dark" ? "text-amber-800" : "text-amber-300"
+                }`}>
                   Since 2008
                 </span>
               </div>
@@ -63,7 +77,9 @@ export default function HomePage() {
               <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-6">
                 {home.heroTitle}
               </h1>
-              <p className="text-base sm:text-lg text-gray-300 mb-8 leading-relaxed max-w-xl">
+              <p className={`text-base sm:text-lg mb-8 leading-relaxed max-w-xl ${
+                home.heroTextColor === "dark" ? "text-gray-600" : "text-gray-300"
+              }`}>
                 {home.heroSubtitle}
               </p>
               <div className="flex flex-wrap gap-4">
@@ -78,7 +94,11 @@ export default function HomePage() {
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center px-8 py-3.5 border-2 border-white/20 hover:border-white/40 hover:bg-white/5 text-white font-semibold rounded-lg transition-all"
+                  className={`inline-flex items-center px-8 py-3.5 border-2 font-semibold rounded-lg transition-all ${
+                    home.heroTextColor === "dark"
+                      ? "border-gray-900/20 hover:border-gray-900/40 hover:bg-gray-900/5 text-gray-900"
+                      : "border-white/20 hover:border-white/40 hover:bg-white/5 text-white"
+                  }`}
                 >
                   Get a Quote
                 </Link>

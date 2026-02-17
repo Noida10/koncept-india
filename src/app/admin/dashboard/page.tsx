@@ -236,29 +236,79 @@ function HomeEditor({ content, setContent }: EditorProps) {
       <TextAreaField label="Hero Subtitle" value={home.heroSubtitle} onChange={(v) => update("heroSubtitle", v)} />
       <InputField label="CTA Button Text" value={home.heroCta} onChange={(v) => update("heroCta", v)} />
 
-      {/* Hero Background Image */}
-      <div className="border border-gray-200 rounded-lg p-4">
-        <h4 className="text-sm font-medium text-gray-700 mb-3">Hero Background Image</h4>
+      {/* Hero Background & Text Color */}
+      <div className="border border-gray-200 rounded-lg p-4 space-y-4">
+        <h4 className="text-sm font-medium text-gray-700">Hero Background & Text Color</h4>
         <InputField
           label="Background Image URL (paste any image URL)"
           value={home.heroBackground}
           onChange={(v) => update("heroBackground", v)}
         />
+
+        {/* Text Color Toggle */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Hero Text Color
+          </label>
+          <div className="flex gap-3">
+            <button
+              onClick={() => update("heroTextColor", "light")}
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-lg border-2 transition-all ${
+                home.heroTextColor === "light"
+                  ? "border-amber-700 bg-amber-50"
+                  : "border-gray-200 hover:border-gray-300"
+              }`}
+            >
+              <div className="w-6 h-6 rounded-full bg-gray-900 flex items-center justify-center">
+                <span className="text-white text-xs font-bold">A</span>
+              </div>
+              <span className="text-sm font-medium text-gray-700">Light text</span>
+              <span className="text-xs text-gray-400">(for dark backgrounds)</span>
+            </button>
+            <button
+              onClick={() => update("heroTextColor", "dark")}
+              className={`flex items-center gap-2 px-4 py-2.5 rounded-lg border-2 transition-all ${
+                home.heroTextColor === "dark"
+                  ? "border-amber-700 bg-amber-50"
+                  : "border-gray-200 hover:border-gray-300"
+              }`}
+            >
+              <div className="w-6 h-6 rounded-full bg-white border border-gray-300 flex items-center justify-center">
+                <span className="text-gray-900 text-xs font-bold">A</span>
+              </div>
+              <span className="text-sm font-medium text-gray-700">Dark text</span>
+              <span className="text-xs text-gray-400">(for light backgrounds)</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Preview */}
         {home.heroBackground && (
-          <div className="mt-3">
+          <div>
             <p className="text-xs text-gray-500 mb-2">Preview:</p>
-            <div className="relative h-32 rounded-lg overflow-hidden">
+            <div className="relative h-36 rounded-lg overflow-hidden">
               <img
                 src={home.heroBackground}
                 alt="Hero background preview"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/75 to-gray-900/60" />
-              <span className="absolute bottom-2 left-3 text-white text-xs font-medium">With dark overlay applied</span>
+              <div className={`absolute inset-0 ${
+                home.heroTextColor === "dark"
+                  ? "bg-gradient-to-r from-white/80 via-white/60 to-white/40"
+                  : "bg-gradient-to-r from-gray-900/90 via-gray-900/75 to-gray-900/60"
+              }`} />
+              <div className="absolute bottom-3 left-4">
+                <span className={`text-lg font-bold ${home.heroTextColor === "dark" ? "text-gray-900" : "text-white"}`}>
+                  Sample Title Text
+                </span>
+                <p className={`text-xs ${home.heroTextColor === "dark" ? "text-gray-600" : "text-gray-300"}`}>
+                  Subtitle text preview
+                </p>
+              </div>
             </div>
           </div>
         )}
-        <p className="mt-2 text-xs text-gray-400">
+        <p className="text-xs text-gray-400">
           Tip: Use free images from Unsplash — e.g. https://images.unsplash.com/photo-ID?w=1920&amp;q=80
         </p>
       </div>
