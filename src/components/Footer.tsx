@@ -69,8 +69,20 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-10 pt-6 text-center text-sm text-gray-500">
-          &copy; {new Date().getFullYear()} Koncept India Enterprises. All rights reserved.
+        {/* Recommended Software */}
+        <div className="border-t border-gray-800 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-500">
+          <p>&copy; {new Date().getFullYear()} Koncept India Enterprises. All rights reserved.</p>
+          <p>
+            Recommended Hotel PMS:{" "}
+            <a
+              href="https://frontdesko.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-amber-400 hover:text-amber-300 transition-colors font-medium"
+            >
+              Frontdesko.app
+            </a>
+          </p>
         </div>
       </div>
     </footer>
