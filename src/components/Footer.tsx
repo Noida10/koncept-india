@@ -8,7 +8,7 @@ export default function Footer() {
           {/* Company */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <img src="/images/logo.svg" alt="Koncept India Enterprises" className="h-10 w-auto brightness-0 invert" />
+              <img src="/images/logo-light.svg" alt="Koncept India Enterprises" className="h-10 w-auto" />
             </div>
             <p className="text-sm leading-relaxed">
               One of the leading high-quality printers equipped with in-house
