@@ -14,10 +14,10 @@ export default function ProductsPage() {
   return (
     <div className="bg-white">
       {/* Page Hero */}
-      <section className="bg-gradient-to-r from-[#2755c5] to-[#7691da] text-white py-16 sm:py-20">
+      <section className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">{products.title}</h1>
-          <p className="text-blue-100 text-lg max-w-2xl">{products.subtitle}</p>
+          <p className="text-gray-300 text-lg max-w-2xl">{products.subtitle}</p>
         </div>
       </section>
 
@@ -34,7 +34,7 @@ export default function ProductsPage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-3">
                   {category.name}
                 </h2>
-                <div className="w-16 h-1 bg-[#2755c5] mb-4"></div>
+                <div className="w-16 h-1 bg-amber-700 mb-4"></div>
                 <p className="text-gray-600 text-lg">{category.description}</p>
               </div>
 
@@ -42,9 +42,9 @@ export default function ProductsPage() {
                 {category.items.map((item) => (
                   <div
                     key={item}
-                    className="group flex items-center gap-3 p-4 bg-gray-50 rounded-lg hover:bg-[#c6d1f0]/30 hover:shadow-sm transition-all border border-transparent hover:border-[#7691da]/40"
+                    className="group flex items-center gap-3 p-4 bg-gray-50 rounded-lg hover:bg-amber-50 hover:shadow-sm transition-all border border-transparent hover:border-amber-200"
                   >
-                    <div className="w-2 h-2 bg-[#2755c5] rounded-full shrink-0 group-hover:scale-125 transition-transform"></div>
+                    <div className="w-2 h-2 bg-amber-700 rounded-full shrink-0 group-hover:scale-125 transition-transform"></div>
                     <span className="text-gray-700 font-medium">{item}</span>
                   </div>
                 ))}

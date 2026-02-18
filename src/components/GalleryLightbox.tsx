@@ -60,7 +60,7 @@ export default function GalleryLightbox({ categories }: { categories: GalleryCat
               }
             }}
           >
-            <div className="h-56 bg-gradient-to-br from-[#c6d1f0] to-[#7691da]/30 flex items-center justify-center">
+            <div className="h-56 bg-gradient-to-br from-amber-100 to-amber-200 flex items-center justify-center">
               {category.images.length > 0 ? (
                 <div className="grid grid-cols-2 gap-2 p-4 w-full h-full">
                   {category.images.slice(0, 4).map((img, i) => (
@@ -76,7 +76,7 @@ export default function GalleryLightbox({ categories }: { categories: GalleryCat
               ) : (
                 <div className="text-center p-8">
                   <svg
-                    className="w-16 h-16 text-[#7691da] mx-auto mb-3"
+                    className="w-16 h-16 text-amber-400 mx-auto mb-3"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -88,7 +88,7 @@ export default function GalleryLightbox({ categories }: { categories: GalleryCat
                       d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"
                     />
                   </svg>
-                  <p className="text-[#2755c5] text-sm font-medium">Images coming soon</p>
+                  <p className="text-amber-700 text-sm font-medium">Images coming soon</p>
                 </div>
               )}
             </div>
@@ -96,7 +96,7 @@ export default function GalleryLightbox({ categories }: { categories: GalleryCat
               <h3 className="text-xl font-bold text-gray-900 mb-2">{category.name}</h3>
               <p className="text-gray-600 leading-relaxed">{category.description}</p>
               {category.images.length > 0 && (
-                <p className="text-[#2755c5] text-sm font-medium mt-3 group-hover:text-[#2755c5] transition-colors">
+                <p className="text-amber-700 text-sm font-medium mt-3 group-hover:text-amber-700 transition-colors">
                   View {category.images.length} image{category.images.length !== 1 ? "s" : ""} &rarr;
                 </p>
               )}

@@ -45,7 +45,7 @@ export default function ContactStats() {
               <div className="text-3xl sm:text-4xl font-bold mb-1">
                 <CountUp end={stat.end} suffix={stat.suffix} />
               </div>
-              <p className="text-sm text-blue-100 font-medium">{stat.label}</p>
+              <p className="text-sm text-white/80 font-medium">{stat.label}</p>
             </div>
           ))}
         </div>

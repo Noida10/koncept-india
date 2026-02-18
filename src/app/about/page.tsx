@@ -15,10 +15,10 @@ export default function AboutPage() {
   return (
     <div className="bg-white">
       {/* Page Hero */}
-      <section className="bg-gradient-to-r from-[#2755c5] to-[#7691da] text-white py-16 sm:py-20">
+      <section className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">{about.title}</h1>
-          <p className="text-blue-100 text-lg max-w-2xl">
+          <p className="text-gray-300 text-lg max-w-2xl">
             Dedicated to excellence in printing, packaging, and corporate solutions.
           </p>
         </div>
@@ -30,7 +30,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Company Overview</h2>
-              <div className="w-16 h-1 bg-[#2755c5] mb-6"></div>
+              <div className="w-16 h-1 bg-amber-700 mb-6"></div>
               {about.overview.map((p, i) => (
                 <p key={i} className="text-gray-600 leading-relaxed mb-4 text-lg">
                   {p}
@@ -55,7 +55,7 @@ export default function AboutPage() {
                 key={i}
                 className="bg-white rounded-xl p-6 shadow-sm border border-gray-100"
               >
-                <div className="w-12 h-12 bg-[#2755c5] text-white rounded-lg flex items-center justify-center mb-4 text-xl font-bold">
+                <div className="w-12 h-12 bg-amber-700 text-white rounded-lg flex items-center justify-center mb-4 text-xl font-bold">
                   {i + 1}
                 </div>
                 <p className="text-gray-600 leading-relaxed">{cap}</p>
@@ -75,7 +75,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {about.visionMission.map((item, i) => (
               <div key={i} className="flex items-start gap-4 p-4">
-                <div className="w-2 h-2 bg-[#2755c5] rounded-full mt-2 shrink-0"></div>
+                <div className="w-2 h-2 bg-amber-700 rounded-full mt-2 shrink-0"></div>
                 <p className="text-gray-700 leading-relaxed">{item}</p>
               </div>
             ))}

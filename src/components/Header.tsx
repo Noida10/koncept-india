@@ -29,7 +29,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-[#2755c5] hover:bg-[#c6d1f0]/30 rounded-md transition-colors"
+                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-amber-700 hover:bg-amber-50 rounded-md transition-colors"
               >
                 {link.label}
               </Link>
@@ -61,7 +61,7 @@ export default function Header() {
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="block px-4 py-3 text-sm font-medium text-gray-700 hover:text-[#2755c5] hover:bg-[#c6d1f0]/30 rounded-md"
+              className="block px-4 py-3 text-sm font-medium text-gray-700 hover:text-amber-700 hover:bg-amber-50 rounded-md"
             >
               {link.label}
             </Link>

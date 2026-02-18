@@ -10,14 +10,14 @@ const stats = [
 
 export default function AboutStats() {
   return (
-    <div className="bg-gradient-to-br from-[#c6d1f0] to-[#7691da]/30 rounded-2xl p-8 lg:p-12">
+    <div className="bg-gradient-to-br from-amber-50 to-amber-100 rounded-2xl p-8 lg:p-12">
       <div className="space-y-6">
         {stats.map((stat) => (
           <div key={stat.label} className="flex items-center gap-4">
             <CountUp
               end={stat.end}
               suffix={stat.suffix}
-              className="text-3xl font-bold text-[#2755c5] min-w-[80px]"
+              className="text-3xl font-bold text-amber-700 min-w-[80px]"
             />
             <span className="text-gray-700 font-medium">{stat.label}</span>
           </div>
