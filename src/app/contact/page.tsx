@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { getContent } from "@/lib/content";
 import ContactForm from "./ContactForm";
-import ContactStats from "./ContactStats";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -23,9 +22,6 @@ export default function ContactPage() {
           </p>
         </div>
       </section>
-
-      {/* Animated Stats */}
-      <ContactStats />
 
       <section className="py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
