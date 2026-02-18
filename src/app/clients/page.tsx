@@ -14,10 +14,10 @@ export default function ClientsPage() {
   return (
     <div className="bg-white">
       {/* Page Hero */}
-      <section className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-16 sm:py-20">
+      <section className="bg-gradient-to-r from-[#2755c5] to-[#7691da] text-white py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">{clients.title}</h1>
-          <p className="text-gray-300 text-lg max-w-2xl">{clients.subtitle}</p>
+          <p className="text-blue-100 text-lg max-w-2xl">{clients.subtitle}</p>
         </div>
       </section>
 
@@ -32,17 +32,17 @@ export default function ClientsPage() {
               <h2 className="text-2xl font-bold text-gray-900 mb-2">
                 {category.name}
               </h2>
-              <div className="w-16 h-1 bg-amber-700 mb-8"></div>
+              <div className="w-16 h-1 bg-[#2755c5] mb-8"></div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {category.clients.map((client) => (
                   <div
                     key={client}
-                    className="group flex items-center gap-4 p-5 bg-white rounded-xl border border-gray-200 hover:shadow-md hover:border-amber-200 transition-all"
+                    className="group flex items-center gap-4 p-5 bg-white rounded-xl border border-gray-200 hover:shadow-md hover:border-[#7691da]/40 transition-all"
                   >
                     {/* Logo placeholder */}
-                    <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-amber-50 transition-colors">
-                      <span className="text-lg font-bold text-amber-700">
+                    <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-[#c6d1f0]/30 transition-colors">
+                      <span className="text-lg font-bold text-[#2755c5]">
                         {client.charAt(0)}
                       </span>
                     </div>

@@ -11,6 +11,9 @@
   --color-amber-700: #b45309;
   --color-amber-50: #fffbeb;
   --color-amber-400: #f59e0b;
+  --color-brand: #2755c5;
+  --color-brand-light: #c6d1f0;
+  --color-brand-mid: #7691da;
 }
 
 body {

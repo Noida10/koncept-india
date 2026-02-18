@@ -66,7 +66,7 @@ export default function ContactForm() {
           required
           value={form.name}
           onChange={(e) => setForm({ ...form, name: e.target.value })}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-all text-gray-900"
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2755c5] focus:border-transparent outline-none transition-all text-gray-900"
           placeholder="Your full name"
         />
       </div>
@@ -81,7 +81,7 @@ export default function ContactForm() {
           required
           value={form.email}
           onChange={(e) => setForm({ ...form, email: e.target.value })}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-all text-gray-900"
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2755c5] focus:border-transparent outline-none transition-all text-gray-900"
           placeholder="your@email.com"
         />
       </div>
@@ -95,7 +95,7 @@ export default function ContactForm() {
           id="phone"
           value={form.phone}
           onChange={(e) => setForm({ ...form, phone: e.target.value })}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-all text-gray-900"
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2755c5] focus:border-transparent outline-none transition-all text-gray-900"
           placeholder="+91 XXXXX XXXXX"
         />
       </div>
@@ -110,7 +110,7 @@ export default function ContactForm() {
           rows={5}
           value={form.inquiry}
           onChange={(e) => setForm({ ...form, inquiry: e.target.value })}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-all resize-none text-gray-900"
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2755c5] focus:border-transparent outline-none transition-all resize-none text-gray-900"
           placeholder="Tell us about your project requirements..."
         />
       </div>
@@ -118,7 +118,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="w-full px-6 py-3 bg-amber-700 hover:bg-amber-800 disabled:bg-amber-400 text-white font-semibold rounded-lg transition-colors"
+        className="w-full px-6 py-3 bg-[#2755c5] hover:bg-[#1e44a0] disabled:bg-[#7691da] text-white font-semibold rounded-lg transition-colors"
       >
         {status === "sending" ? "Sending..." : "Send Inquiry"}
       </button>

@@ -43,9 +43,9 @@ export default function HomePage() {
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12 w-full">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6 bg-amber-700/20 border border-amber-700/30">
-              <div className="w-1.5 h-1.5 bg-amber-600 rounded-full animate-pulse"></div>
-              <span className="text-xs font-semibold uppercase tracking-wider text-amber-300">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6 bg-[#2755c5]/20 border border-[#7691da]/40">
+              <div className="w-1.5 h-1.5 bg-[#7691da] rounded-full animate-pulse"></div>
+              <span className="text-xs font-semibold uppercase tracking-wider text-[#c6d1f0]">
                 Since 2008
               </span>
             </div>
@@ -84,16 +84,16 @@ export default function HomePage() {
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Our Expertise
             </h2>
-            <div className="w-20 h-1 bg-amber-700 mx-auto"></div>
+            <div className="w-20 h-1 bg-[#2755c5] mx-auto"></div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {home.quickLinks.map((link) => (
               <Link
                 key={link.title}
                 href={link.href}
-                className="group p-6 bg-white border border-gray-200 rounded-xl hover:shadow-lg hover:border-amber-200 transition-all"
+                className="group p-6 bg-white border border-gray-200 rounded-xl hover:shadow-lg hover:border-[#7691da]/40 transition-all"
               >
-                <div className="w-14 h-14 bg-amber-50 text-amber-700 rounded-lg flex items-center justify-center mb-4 group-hover:bg-amber-700 group-hover:text-white transition-colors">
+                <div className="w-14 h-14 bg-[#c6d1f0] text-[#2755c5] rounded-lg flex items-center justify-center mb-4 group-hover:bg-[#2755c5] group-hover:text-white transition-colors">
                   {icons[link.icon] || icons.print}
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">

@@ -20,17 +20,7 @@ export default function Header() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-amber-700 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">K</span>
-            </div>
-            <div>
-              <span className="text-xl font-bold text-gray-900 tracking-tight">
-                Koncept India
-              </span>
-              <span className="hidden sm:block text-xs text-gray-500 -mt-1">
-                Enterprises
-              </span>
-            </div>
+            <img src="/images/logo.svg" alt="Koncept India Enterprises" className="h-12 w-auto" />
           </Link>
 
           {/* Desktop Nav */}
@@ -39,7 +29,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-amber-700 hover:bg-amber-50 rounded-md transition-colors"
+                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-[#2755c5] hover:bg-[#c6d1f0]/30 rounded-md transition-colors"
               >
                 {link.label}
               </Link>
@@ -71,7 +61,7 @@ export default function Header() {
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="block px-4 py-3 text-sm font-medium text-gray-700 hover:text-amber-700 hover:bg-amber-50 rounded-md"
+              className="block px-4 py-3 text-sm font-medium text-gray-700 hover:text-[#2755c5] hover:bg-[#c6d1f0]/30 rounded-md"
             >
               {link.label}
             </Link>

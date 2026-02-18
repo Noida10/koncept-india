@@ -8,10 +8,7 @@ export default function Footer() {
           {/* Company */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-8 bg-amber-700 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">K</span>
-              </div>
-              <span className="text-lg font-bold text-white">Koncept India</span>
+              <img src="/images/logo.svg" alt="Koncept India Enterprises" className="h-10 w-auto brightness-0 invert" />
             </div>
             <p className="text-sm leading-relaxed">
               One of the leading high-quality printers equipped with in-house
@@ -31,7 +28,7 @@ export default function Footer() {
                 { href: "/contact", label: "Contact Us" },
               ].map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="hover:text-amber-400 transition-colors">
+                  <Link href={link.href} className="hover:text-[#c6d1f0] transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -56,12 +53,12 @@ export default function Footer() {
             </p>
             <div className="space-y-2 text-sm">
               <p>
-                <span className="text-amber-400">Phone:</span>{" "}
-                <a href="tel:+918860331991" className="hover:text-amber-400">+91 – 88603 31991</a>
+                <span className="text-[#7691da]">Phone:</span>{" "}
+                <a href="tel:+918860331991" className="hover:text-[#7691da]">+91 – 88603 31991</a>
               </p>
               <p>
-                <span className="text-amber-400">Email:</span>{" "}
-                <a href="mailto:Konceptindia.enterprises@gmail.com" className="hover:text-amber-400">
+                <span className="text-[#7691da]">Email:</span>{" "}
+                <a href="mailto:Konceptindia.enterprises@gmail.com" className="hover:text-[#7691da]">
                   Konceptindia.enterprises@gmail.com
                 </a>
               </p>
@@ -78,7 +75,7 @@ export default function Footer() {
               href="https://frontdesko.app"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-amber-400 hover:text-amber-300 transition-colors font-medium"
+              className="text-[#7691da] hover:text-[#c6d1f0] transition-colors font-medium"
             >
               Frontdesko.app
             </a>
