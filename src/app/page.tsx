@@ -37,36 +37,6 @@ export default function HomePage() {
       {/* Hero Section — full viewport slideshow */}
       <section className="relative overflow-hidden text-white h-[70vh] flex items-center">
         <HeroProductCarousel products={home.heroProducts} />
-
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-900/85 via-gray-900/60 to-gray-900/40" />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12 w-full">
-          <div className="max-w-2xl">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6">
-              {home.heroTitle}
-            </h1>
-            <p className="text-base sm:text-lg mb-8 leading-relaxed max-w-xl text-gray-300">
-              {home.heroSubtitle}
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                href="/printing"
-                className="inline-flex items-center px-8 py-3.5 bg-amber-700 hover:bg-amber-800 text-white font-semibold rounded-lg transition-colors shadow-lg shadow-amber-900/30"
-              >
-                {home.heroCta}
-                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center px-8 py-3.5 border-2 border-white/20 hover:border-white/40 hover:bg-white/5 text-white font-semibold rounded-lg transition-all"
-              >
-                Get a Quote
-              </Link>
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* Our Expertise */}
