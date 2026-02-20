@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getContent } from "@/lib/content";
-import SectionHeading from "@/components/SectionHeading";
+import ScrollReveal from "@/components/ScrollReveal";
+import ImageWithFallback from "@/components/ImageWithFallback";
 import AboutStats from "./AboutStats";
 
 export const metadata: Metadata = {
@@ -24,61 +25,85 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Company Overview */}
+      {/* Our Story — left text, right image */}
       <section className="py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Company Overview</h2>
+            <ScrollReveal>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
               <div className="w-16 h-1 bg-amber-700 mb-6"></div>
               {about.overview.map((p, i) => (
                 <p key={i} className="text-gray-600 leading-relaxed mb-4 text-lg">
                   {p}
                 </p>
               ))}
-            </div>
-            <AboutStats />
+              <AboutStats />
+            </ScrollReveal>
+            <ScrollReveal delay={200}>
+              <ImageWithFallback
+                src="/images/about/our-story.jpg"
+                alt="Our Story"
+                className="rounded-2xl overflow-hidden aspect-[4/3] bg-gray-100"
+                fallbackText="Image placeholder"
+              />
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
-      {/* Capabilities */}
+      {/* Our Machinery — left image, right text */}
       <section className="py-16 sm:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            title="Our Capabilities"
-            subtitle="State-of-the-art technology and skilled craftsmanship."
-          />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {about.capabilities.map((cap, i) => (
-              <div
-                key={i}
-                className="bg-white rounded-xl p-6 shadow-sm border border-gray-100"
-              >
-                <div className="w-12 h-12 bg-amber-700 text-white rounded-lg flex items-center justify-center mb-4 text-xl font-bold">
-                  {i + 1}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <ScrollReveal className="order-2 lg:order-1">
+              <ImageWithFallback
+                src="/images/about/machinery.jpg"
+                alt="Our Machinery"
+                className="rounded-2xl overflow-hidden aspect-[4/3] bg-gray-100"
+                fallbackText="Image placeholder"
+              />
+            </ScrollReveal>
+            <ScrollReveal delay={200} className="order-1 lg:order-2">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Machinery</h2>
+              <div className="w-16 h-1 bg-amber-700 mb-6"></div>
+              {about.capabilities.map((cap, i) => (
+                <div key={i} className="flex items-start gap-4 mb-4">
+                  <div className="w-8 h-8 bg-amber-700 text-white rounded-lg flex items-center justify-center shrink-0 text-sm font-bold mt-0.5">
+                    {i + 1}
+                  </div>
+                  <p className="text-gray-600 leading-relaxed text-lg">{cap}</p>
                 </div>
-                <p className="text-gray-600 leading-relaxed">{cap}</p>
-              </div>
-            ))}
+              ))}
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
-      {/* Vision & Mission */}
+      {/* Meet the Founder — left text, right photo */}
       <section className="py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            title="Vision & Mission"
-            subtitle="Our guiding principles and commitment to excellence."
-          />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-            {about.visionMission.map((item, i) => (
-              <div key={i} className="flex items-start gap-4 p-4">
-                <div className="w-2 h-2 bg-amber-700 rounded-full mt-2 shrink-0"></div>
-                <p className="text-gray-700 leading-relaxed">{item}</p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <ScrollReveal>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">Meet the Founder</h2>
+              <div className="w-16 h-1 bg-amber-700 mb-6"></div>
+              <div className="space-y-4">
+                {about.visionMission.map((item, i) => (
+                  <div key={i} className="flex items-start gap-4">
+                    <div className="w-2 h-2 bg-amber-700 rounded-full mt-2.5 shrink-0"></div>
+                    <p className="text-gray-600 leading-relaxed text-lg">{item}</p>
+                  </div>
+                ))}
               </div>
-            ))}
+            </ScrollReveal>
+            <ScrollReveal delay={200}>
+              <ImageWithFallback
+                src="/images/about/founder.jpg"
+                alt="Founder"
+                className="rounded-2xl overflow-hidden aspect-[3/4] max-w-sm mx-auto bg-gray-100"
+                fallbackIcon="person"
+                fallbackText="Founder photo"
+              />
+            </ScrollReveal>
           </div>
         </div>
       </section>

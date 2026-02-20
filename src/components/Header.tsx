@@ -4,11 +4,10 @@ import { useState } from "react";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About Us" },
-  { href: "/products", label: "Products & Services" },
-  { href: "/gallery", label: "Gallery" },
-  { href: "/clients", label: "Our Clients" },
-  { href: "/contact", label: "Contact Us" },
+  { href: "/about", label: "About" },
+  { href: "/products#packaging", label: "Packaging Solutions" },
+  { href: "/products#paper-printing", label: "Printing Services" },
+  { href: "/gallery", label: "Catalogue" },
 ];
 
 export default function Header() {
@@ -18,9 +17,14 @@ export default function Header() {
     <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-3">
-            <img src="/images/logo.svg" alt="Koncept India Enterprises" className="h-12 w-auto" />
+          {/* Logo — text only */}
+          <Link href="/" className="flex flex-col">
+            <span className="text-xl font-bold text-gray-900 tracking-tight leading-tight">
+              Koncept India
+            </span>
+            <span className="text-[11px] text-gray-500 tracking-wide uppercase">
+              Enterprises
+            </span>
           </Link>
 
           {/* Desktop Nav */}
@@ -34,6 +38,12 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
+            <Link
+              href="/contact"
+              className="ml-2 px-5 py-2.5 text-sm font-semibold text-white bg-amber-700 hover:bg-amber-800 rounded-lg transition-colors"
+            >
+              Contact Us
+            </Link>
           </nav>
 
           {/* Mobile toggle */}
@@ -66,6 +76,13 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
+          <Link
+            href="/contact"
+            onClick={() => setMobileOpen(false)}
+            className="block mt-2 px-4 py-3 text-sm font-semibold text-white bg-amber-700 hover:bg-amber-800 rounded-lg text-center"
+          >
+            Contact Us
+          </Link>
         </nav>
       )}
     </header>

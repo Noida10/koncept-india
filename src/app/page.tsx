@@ -2,6 +2,8 @@ import Link from "next/link";
 import { getContent } from "@/lib/content";
 import ClientStrip from "@/components/ClientStrip";
 import HeroProductCarousel from "@/components/HeroProductCarousel";
+import ScrollReveal from "@/components/ScrollReveal";
+import Testimonials from "@/components/Testimonials";
 
 const icons: Record<string, React.ReactNode> = {
   print: (
@@ -32,15 +34,12 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Hero Section — full-width slideshow background */}
-      <section className="relative overflow-hidden text-white min-h-[50vh] sm:min-h-[55vh] flex items-center">
-        {/* Slideshow images fill the entire hero */}
+      {/* Hero Section — full viewport slideshow */}
+      <section className="relative overflow-hidden text-white h-[calc(100vh-5rem)] flex items-center">
         <HeroProductCarousel products={home.heroProducts} />
 
-        {/* Dark overlay for text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-gray-900/85 via-gray-900/60 to-gray-900/40" />
 
-        {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12 w-full">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6 bg-amber-700/20 border border-amber-700/30">
@@ -77,32 +76,33 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Quick Links */}
+      {/* Our Expertise */}
       <section className="py-16 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <ScrollReveal className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Our Expertise
             </h2>
             <div className="w-20 h-1 bg-amber-700 mx-auto"></div>
-          </div>
+          </ScrollReveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {home.quickLinks.map((link) => (
-              <Link
-                key={link.title}
-                href={link.href}
-                className="group p-6 bg-white border border-gray-200 rounded-xl hover:shadow-lg hover:border-amber-200 transition-all"
-              >
-                <div className="w-14 h-14 bg-amber-50 text-amber-700 rounded-lg flex items-center justify-center mb-4 group-hover:bg-amber-700 group-hover:text-white transition-colors">
-                  {icons[link.icon] || icons.print}
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  {link.title}
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  {link.description}
-                </p>
-              </Link>
+            {home.quickLinks.map((link, i) => (
+              <ScrollReveal key={link.title} delay={i * 100}>
+                <Link
+                  href={link.href}
+                  className="group block p-6 bg-white border border-gray-200 rounded-xl hover:shadow-lg hover:border-amber-200 transition-all"
+                >
+                  <div className="w-14 h-14 bg-amber-50 text-amber-700 rounded-lg flex items-center justify-center mb-4 group-hover:bg-amber-700 group-hover:text-white transition-colors">
+                    {icons[link.icon] || icons.print}
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    {link.title}
+                  </h3>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    {link.description}
+                  </p>
+                </Link>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -110,29 +110,45 @@ export default function HomePage() {
 
       {/* Client Strip */}
       <section>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4">
-          <h2 className="text-center text-xl font-semibold text-gray-500 uppercase tracking-wide">
-            Trusted By Leading Brands
-          </h2>
-        </div>
+        <ScrollReveal>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4">
+            <h2 className="text-center text-xl font-semibold text-gray-500 uppercase tracking-wide">
+              Trusted By Leading Brands
+            </h2>
+          </div>
+        </ScrollReveal>
         <ClientStrip clients={home.clientStrip} />
       </section>
 
-      {/* CTA */}
-      <section className="py-16 bg-amber-700 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Ready to elevate your brand?
-          </h2>
-          <p className="text-amber-100 mb-8 text-lg">
-            Let us bring your vision to life with premium printing, packaging, and gifting solutions.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center px-8 py-3 bg-white text-amber-700 font-semibold rounded-lg hover:bg-amber-50 transition-colors"
-          >
-            Contact Us Today
-          </Link>
+      {/* Testimonials */}
+      <Testimonials />
+
+      {/* CTA — image background */}
+      <section className="relative py-20 text-white overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1603513492128-ba7bc9b3e143?q=80&w=1600&auto=format&fit=crop')",
+          }}
+        />
+        <div className="absolute inset-0 bg-gray-900/75" />
+
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <ScrollReveal>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+              Ready to elevate your brand?
+            </h2>
+            <p className="text-gray-300 mb-8 text-lg">
+              Let us bring your vision to life with premium printing, packaging, and gifting solutions.
+            </p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center px-8 py-3 bg-amber-700 hover:bg-amber-800 text-white font-semibold rounded-lg transition-colors"
+            >
+              Contact Us Today
+            </Link>
+          </ScrollReveal>
         </div>
       </section>
     </>

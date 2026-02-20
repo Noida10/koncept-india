@@ -10,9 +10,27 @@ export default function ClientStrip({ clients }: { clients: string[] }) {
         {doubled.map((client, i) => (
           <div
             key={`${client}-${i}`}
-            className="inline-flex items-center justify-center mx-8 px-6 py-3 bg-white rounded-lg shadow-sm border border-gray-100 min-w-[180px]"
+            className="inline-flex flex-col items-center justify-center mx-8 min-w-[140px]"
           >
-            <span className="text-gray-700 font-semibold text-sm">{client}</span>
+            <div className="w-[120px] h-[60px] bg-white rounded-lg shadow-sm border border-gray-100 flex items-center justify-center overflow-hidden">
+              {/* Replace with actual client logo images in /public/images/clients/ */}
+              <img
+                src={`/images/clients/${client.toLowerCase().replace(/\s+/g, "-")}.png`}
+                alt={client}
+                className="max-w-full max-h-full object-contain p-2"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  target.style.display = "none";
+                  const fallback = target.nextElementSibling as HTMLElement;
+                  if (fallback) fallback.style.display = "flex";
+                }}
+              />
+              <span
+                className="text-gray-700 font-semibold text-xs text-center px-2 hidden items-center justify-center w-full h-full"
+              >
+                {client}
+              </span>
+            </div>
           </div>
         ))}
       </div>
