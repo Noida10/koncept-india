@@ -30,7 +30,7 @@
         "title": "Corporate Stationery",
         "tagline": "Professional branding that makes an impression",
         "image": "https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=800&auto=format&fit=crop",
-        "href": "/products#paper-printing"
+        "href": "/printing"
       },
       {
         "title": "Eco-Friendly Amenities",
@@ -42,13 +42,13 @@
         "title": "Leather Collections",
         "tagline": "Handcrafted bags, wallets & accessories",
         "image": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=800&auto=format&fit=crop",
-        "href": "/products#leather-products"
+        "href": "/packaging#leather-products"
       },
       {
         "title": "Custom Gift Sets",
         "tagline": "Curated corporate gifting solutions",
         "image": "https://images.unsplash.com/photo-1549465220-1a8b9238f581?q=80&w=800&auto=format&fit=crop",
-        "href": "/products#corporate-gifting"
+        "href": "/packaging#corporate-gifting"
       }
     ],
     "quickLinks": [
@@ -56,25 +56,25 @@
         "title": "Printing Services",
         "description": "Multi-colour Offset, Digital, Screen, UV & Leaf Printing with precision and excellence.",
         "icon": "print",
-        "href": "/products#paper-printing"
+        "href": "/printing"
       },
       {
         "title": "Corporate Gifting",
         "description": "Curated premium gifts for corporate events, branding, and client relationships.",
         "icon": "gift",
-        "href": "/products#corporate-gifting"
+        "href": "/packaging#corporate-gifting"
       },
       {
         "title": "Leather Products",
         "description": "Handcrafted leather bags, wallets, and accessories for the discerning professional.",
         "icon": "briefcase",
-        "href": "/products#leather-products"
+        "href": "/packaging#leather-products"
       },
       {
         "title": "Custom Packaging",
         "description": "Luxury rigid boxes, eco-friendly solutions, and bespoke packaging designs.",
         "icon": "package",
-        "href": "/products#paper-printing"
+        "href": "/packaging"
       }
     ],
     "clientStrip": [
@@ -167,6 +167,84 @@
         ]
       }
     ]
+  },
+  "printing": {
+    "title": "Printing Services",
+    "subtitle": "High-quality printing solutions with multi-colour Offset, Digital, Screen, UV & Leaf Printing technologies.",
+    "bannerImage": "https://images.unsplash.com/photo-1603513492128-ba7bc9b3e143?q=80&w=1600&auto=format&fit=crop",
+    "categories": [
+      {
+        "id": "paper-printing",
+        "name": "Paper Printing",
+        "description": "High-quality printing solutions for every business need.",
+        "items": [
+          "Leaflets / Fliers",
+          "Corporate Stationary",
+          "Newsletters / Magazines",
+          "Calendars",
+          "Labels / Tags",
+          "Catalogues / Books / Brochures",
+          "Coffee Table Books",
+          "Carry Bags",
+          "Wedding Invitations / Greeting Cards",
+          "Danglers / P.O.P Material",
+          "Invoice Jackets",
+          "Notepads, Diaries",
+          "Personalized Stationary",
+          "Packaging Boxes"
+        ]
+      }
+    ]
+  },
+  "packaging": {
+    "title": "Packaging Solutions",
+    "subtitle": "Premium packaging, corporate gifting, and handcrafted leather products for your brand.",
+    "bannerImage": "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?q=80&w=1600&auto=format&fit=crop",
+    "categories": [
+      {
+        "id": "corporate-gifting",
+        "name": "Corporate Gifting",
+        "description": "Premium gifts for corporate branding and client engagement.",
+        "items": [
+          "Pens, Pencils",
+          "Showpieces",
+          "Gift Sets",
+          "Phone Covers",
+          "Power Banks",
+          "Sticky Notes",
+          "T-shirts, Caps",
+          "Mugs"
+        ]
+      },
+      {
+        "id": "leather-products",
+        "name": "Leather Products",
+        "description": "Handcrafted leather goods for professionals and enterprises.",
+        "items": [
+          "Laptop Bags",
+          "Gym Bags",
+          "Duffle Bags",
+          "Passport Holders",
+          "Tablet Sleeves",
+          "Laptop Covers / Laptop Sleeves",
+          "Wallets / Money Clips"
+        ]
+      }
+    ]
+  },
+  "images": {
+    "aboutStory": "/images/about/our-story.jpg",
+    "aboutMachinery": "/images/about/machinery.jpg",
+    "aboutFounder": "/images/about/founder.jpg",
+    "ctaBackground": "https://images.unsplash.com/photo-1603513492128-ba7bc9b3e143?q=80&w=1600&auto=format&fit=crop"
+  },
+  "pageBackgrounds": {
+    "about": { "image": "", "opacity": 0.05 },
+    "contact": { "image": "", "opacity": 0.05 },
+    "gallery": { "image": "", "opacity": 0.05 },
+    "clients": { "image": "", "opacity": 0.05 },
+    "printing": { "image": "", "opacity": 0.05 },
+    "packaging": { "image": "", "opacity": 0.05 }
   },
   "gallery": {
     "title": "Gallery & Portfolio",

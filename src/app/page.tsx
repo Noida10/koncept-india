@@ -35,7 +35,7 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Section — full viewport slideshow */}
-      <section className="relative overflow-hidden text-white h-[calc(100vh-5rem)] flex items-center">
+      <section className="relative overflow-hidden text-white h-[70vh] flex items-center">
         <HeroProductCarousel products={home.heroProducts} />
 
         <div className="absolute inset-0 bg-gradient-to-r from-gray-900/85 via-gray-900/60 to-gray-900/40" />
@@ -57,7 +57,7 @@ export default function HomePage() {
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
-                href="/products"
+                href="/printing"
                 className="inline-flex items-center px-8 py-3.5 bg-amber-700 hover:bg-amber-800 text-white font-semibold rounded-lg transition-colors shadow-lg shadow-amber-900/30"
               >
                 {home.heroCta}
@@ -128,8 +128,9 @@ export default function HomePage() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1603513492128-ba7bc9b3e143?q=80&w=1600&auto=format&fit=crop')",
+            backgroundImage: content.images?.ctaBackground
+              ? `url('${content.images.ctaBackground}')`
+              : "url('https://images.unsplash.com/photo-1603513492128-ba7bc9b3e143?q=80&w=1600&auto=format&fit=crop')",
           }}
         />
         <div className="absolute inset-0 bg-gray-900/75" />

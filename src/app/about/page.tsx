@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getContent } from "@/lib/content";
 import ScrollReveal from "@/components/ScrollReveal";
 import ImageWithFallback from "@/components/ImageWithFallback";
+import PageBackground from "@/components/PageBackground";
 import AboutStats from "./AboutStats";
 
 export const metadata: Metadata = {
@@ -11,10 +12,12 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-  const { about } = getContent();
+  const content = getContent();
+  const { about, images, pageBackgrounds } = content;
+  const bg = pageBackgrounds?.about;
 
   return (
-    <div className="bg-white">
+    <PageBackground image={bg?.image} opacity={bg?.opacity}>
       {/* Page Hero */}
       <section className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,7 +44,7 @@ export default function AboutPage() {
             </ScrollReveal>
             <ScrollReveal delay={200}>
               <ImageWithFallback
-                src="/images/about/our-story.jpg"
+                src={images?.aboutStory || "/images/about/our-story.jpg"}
                 alt="Our Story"
                 className="rounded-2xl overflow-hidden aspect-[4/3] bg-gray-100"
                 fallbackText="Image placeholder"
@@ -57,7 +60,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <ScrollReveal className="order-2 lg:order-1">
               <ImageWithFallback
-                src="/images/about/machinery.jpg"
+                src={images?.aboutMachinery || "/images/about/machinery.jpg"}
                 alt="Our Machinery"
                 className="rounded-2xl overflow-hidden aspect-[4/3] bg-gray-100"
                 fallbackText="Image placeholder"
@@ -97,7 +100,7 @@ export default function AboutPage() {
             </ScrollReveal>
             <ScrollReveal delay={200}>
               <ImageWithFallback
-                src="/images/about/founder.jpg"
+                src={images?.aboutFounder || "/images/about/founder.jpg"}
                 alt="Founder"
                 className="rounded-2xl overflow-hidden aspect-[3/4] max-w-sm mx-auto bg-gray-100"
                 fallbackIcon="person"
@@ -107,6 +110,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-    </div>
+    </PageBackground>
   );
 }

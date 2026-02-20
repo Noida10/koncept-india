@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getContent } from "@/lib/content";
+import PageBackground from "@/components/PageBackground";
 import ContactForm from "./ContactForm";
 
 export const metadata: Metadata = {
@@ -9,10 +10,12 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  const { siteInfo } = getContent();
+  const content = getContent();
+  const { siteInfo, pageBackgrounds } = content;
+  const bg = pageBackgrounds?.contact;
 
   return (
-    <div className="bg-white">
+    <PageBackground image={bg?.image} opacity={bg?.opacity}>
       {/* Page Hero */}
       <section className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -146,6 +149,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-    </div>
+    </PageBackground>
   );
 }

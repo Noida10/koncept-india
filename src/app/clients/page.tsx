@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getContent } from "@/lib/content";
-import SectionHeading from "@/components/SectionHeading";
+import PageBackground from "@/components/PageBackground";
 
 export const metadata: Metadata = {
   title: "Our Clients",
@@ -9,10 +9,12 @@ export const metadata: Metadata = {
 };
 
 export default function ClientsPage() {
-  const { clients } = getContent();
+  const content = getContent();
+  const { clients, pageBackgrounds } = content;
+  const bg = pageBackgrounds?.clients;
 
   return (
-    <div className="bg-white">
+    <PageBackground image={bg?.image} opacity={bg?.opacity}>
       {/* Page Hero */}
       <section className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -40,7 +42,6 @@ export default function ClientsPage() {
                     key={client}
                     className="group flex items-center gap-4 p-5 bg-white rounded-xl border border-gray-200 hover:shadow-md hover:border-amber-200 transition-all"
                   >
-                    {/* Logo placeholder */}
                     <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-amber-50 transition-colors">
                       <span className="text-lg font-bold text-amber-700">
                         {client.charAt(0)}
@@ -71,6 +72,6 @@ export default function ClientsPage() {
           </p>
         </div>
       </section>
-    </div>
+    </PageBackground>
   );
 }

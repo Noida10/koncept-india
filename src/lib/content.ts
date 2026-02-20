@@ -35,6 +35,40 @@ export type SiteContent = {
       items: string[];
     }[];
   };
+  printing: {
+    title: string;
+    subtitle: string;
+    bannerImage: string;
+    categories: {
+      id: string;
+      name: string;
+      description: string;
+      items: string[];
+    }[];
+  };
+  packaging: {
+    title: string;
+    subtitle: string;
+    bannerImage: string;
+    categories: {
+      id: string;
+      name: string;
+      description: string;
+      items: string[];
+    }[];
+  };
+  images: {
+    aboutStory: string;
+    aboutMachinery: string;
+    aboutFounder: string;
+    ctaBackground: string;
+  };
+  pageBackgrounds: {
+    [key: string]: {
+      image: string;
+      opacity: number;
+    };
+  };
   gallery: {
     title: string;
     subtitle: string;

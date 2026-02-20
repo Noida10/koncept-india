@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import type { SiteContent } from "@/lib/content";
 import contentData from "@/data/content.json";
 
-type Tab = "home" | "about" | "products" | "gallery" | "clients" | "siteInfo";
+type Tab = "home" | "about" | "products" | "printing" | "packaging" | "gallery" | "clients" | "images" | "siteInfo";
 
 export default function AdminDashboard() {
   const router = useRouter();
@@ -49,9 +49,12 @@ export default function AdminDashboard() {
   const tabs: { id: Tab; label: string }[] = [
     { id: "home", label: "Home" },
     { id: "about", label: "About" },
-    { id: "products", label: "Products" },
+    { id: "printing", label: "Printing" },
+    { id: "packaging", label: "Packaging" },
+    { id: "products", label: "Products (Legacy)" },
     { id: "gallery", label: "Gallery" },
     { id: "clients", label: "Clients" },
+    { id: "images", label: "Images" },
     { id: "siteInfo", label: "Site Info" },
   ];
 
@@ -119,9 +122,12 @@ export default function AdminDashboard() {
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
           {activeTab === "home" && <HomeEditor content={content} setContent={setContent} />}
           {activeTab === "about" && <AboutEditor content={content} setContent={setContent} />}
+          {activeTab === "printing" && <PrintingEditor content={content} setContent={setContent} />}
+          {activeTab === "packaging" && <PackagingEditor content={content} setContent={setContent} />}
           {activeTab === "products" && <ProductsEditor content={content} setContent={setContent} />}
           {activeTab === "gallery" && <GalleryEditor content={content} setContent={setContent} />}
           {activeTab === "clients" && <ClientsEditor content={content} setContent={setContent} />}
+          {activeTab === "images" && <ImagesEditor content={content} setContent={setContent} />}
           {activeTab === "siteInfo" && <SiteInfoEditor content={content} setContent={setContent} />}
         </div>
       </div>
@@ -634,6 +640,243 @@ function ClientsEditor({ content, setContent }: EditorProps) {
       >
         + Add Client Category
       </button>
+    </div>
+  );
+}
+
+function PrintingEditor({ content, setContent }: EditorProps) {
+  const printing = content.printing;
+  if (!printing) return <p className="text-gray-500">Printing data not found in content.</p>;
+
+  function updateCategory(catIdx: number, field: string, value: string | string[]) {
+    const updated = [...printing.categories];
+    updated[catIdx] = { ...updated[catIdx], [field]: value };
+    setContent({ ...content, printing: { ...printing, categories: updated } });
+  }
+
+  return (
+    <div className="space-y-6">
+      <h3 className="text-lg font-bold text-gray-900">Printing Services Page</h3>
+      <InputField
+        label="Page Title"
+        value={printing.title}
+        onChange={(v) => setContent({ ...content, printing: { ...printing, title: v } })}
+      />
+      <InputField
+        label="Subtitle"
+        value={printing.subtitle}
+        onChange={(v) => setContent({ ...content, printing: { ...printing, subtitle: v } })}
+      />
+      <InputField
+        label="Banner Image URL"
+        value={printing.bannerImage}
+        onChange={(v) => setContent({ ...content, printing: { ...printing, bannerImage: v } })}
+      />
+      {printing.bannerImage && (
+        <div>
+          <p className="text-xs text-gray-500 mb-2">Banner Preview:</p>
+          <img src={printing.bannerImage} alt="Banner preview" className="w-full h-32 object-cover rounded-lg" />
+        </div>
+      )}
+
+      {printing.categories.map((cat, catIdx) => (
+        <div key={cat.id} className="border border-gray-200 rounded-lg p-4">
+          <h4 className="font-semibold text-gray-900 mb-3">{cat.name}</h4>
+          <InputField label="Category Name" value={cat.name} onChange={(v) => updateCategory(catIdx, "name", v)} />
+          <div className="mt-3">
+            <TextAreaField label="Description" value={cat.description} onChange={(v) => updateCategory(catIdx, "description", v)} />
+          </div>
+          <div className="mt-3">
+            <ListEditor label="Items" items={cat.items} onChange={(v) => updateCategory(catIdx, "items", v)} />
+          </div>
+        </div>
+      ))}
+
+      <button
+        onClick={() => {
+          const newCat = { id: `printing-${Date.now()}`, name: "New Category", description: "", items: [] as string[] };
+          setContent({ ...content, printing: { ...printing, categories: [...printing.categories, newCat] } });
+        }}
+        className="text-sm text-amber-700 hover:text-amber-800 font-medium"
+      >
+        + Add Category
+      </button>
+    </div>
+  );
+}
+
+function PackagingEditor({ content, setContent }: EditorProps) {
+  const packaging = content.packaging;
+  if (!packaging) return <p className="text-gray-500">Packaging data not found in content.</p>;
+
+  function updateCategory(catIdx: number, field: string, value: string | string[]) {
+    const updated = [...packaging.categories];
+    updated[catIdx] = { ...updated[catIdx], [field]: value };
+    setContent({ ...content, packaging: { ...packaging, categories: updated } });
+  }
+
+  return (
+    <div className="space-y-6">
+      <h3 className="text-lg font-bold text-gray-900">Packaging Solutions Page</h3>
+      <InputField
+        label="Page Title"
+        value={packaging.title}
+        onChange={(v) => setContent({ ...content, packaging: { ...packaging, title: v } })}
+      />
+      <InputField
+        label="Subtitle"
+        value={packaging.subtitle}
+        onChange={(v) => setContent({ ...content, packaging: { ...packaging, subtitle: v } })}
+      />
+      <InputField
+        label="Banner Image URL"
+        value={packaging.bannerImage}
+        onChange={(v) => setContent({ ...content, packaging: { ...packaging, bannerImage: v } })}
+      />
+      {packaging.bannerImage && (
+        <div>
+          <p className="text-xs text-gray-500 mb-2">Banner Preview:</p>
+          <img src={packaging.bannerImage} alt="Banner preview" className="w-full h-32 object-cover rounded-lg" />
+        </div>
+      )}
+
+      {packaging.categories.map((cat, catIdx) => (
+        <div key={cat.id} className="border border-gray-200 rounded-lg p-4">
+          <h4 className="font-semibold text-gray-900 mb-3">{cat.name}</h4>
+          <InputField label="Category Name" value={cat.name} onChange={(v) => updateCategory(catIdx, "name", v)} />
+          <div className="mt-3">
+            <TextAreaField label="Description" value={cat.description} onChange={(v) => updateCategory(catIdx, "description", v)} />
+          </div>
+          <div className="mt-3">
+            <ListEditor label="Items" items={cat.items} onChange={(v) => updateCategory(catIdx, "items", v)} />
+          </div>
+        </div>
+      ))}
+
+      <button
+        onClick={() => {
+          const newCat = { id: `packaging-${Date.now()}`, name: "New Category", description: "", items: [] as string[] };
+          setContent({ ...content, packaging: { ...packaging, categories: [...packaging.categories, newCat] } });
+        }}
+        className="text-sm text-amber-700 hover:text-amber-800 font-medium"
+      >
+        + Add Category
+      </button>
+    </div>
+  );
+}
+
+function ImagesEditor({ content, setContent }: EditorProps) {
+  const images = content.images || { aboutStory: "", aboutMachinery: "", aboutFounder: "", ctaBackground: "" };
+  const pageBackgrounds = content.pageBackgrounds || {};
+
+  function updateImage(field: string, value: string) {
+    setContent({ ...content, images: { ...images, [field]: value } });
+  }
+
+  function updatePageBg(page: string, field: string, value: string | number) {
+    const current = pageBackgrounds[page] || { image: "", opacity: 0.05 };
+    setContent({
+      ...content,
+      pageBackgrounds: {
+        ...pageBackgrounds,
+        [page]: { ...current, [field]: value },
+      },
+    });
+  }
+
+  const imageFields = [
+    { key: "aboutStory", label: "About Page — Our Story Image" },
+    { key: "aboutMachinery", label: "About Page — Machinery Image" },
+    { key: "aboutFounder", label: "About Page — Founder Photo" },
+    { key: "ctaBackground", label: "Home Page — CTA Background Image" },
+  ];
+
+  const pages = [
+    { key: "about", label: "About" },
+    { key: "contact", label: "Contact" },
+    { key: "gallery", label: "Gallery" },
+    { key: "clients", label: "Clients" },
+    { key: "printing", label: "Printing Services" },
+    { key: "packaging", label: "Packaging Solutions" },
+  ];
+
+  return (
+    <div className="space-y-8">
+      <div>
+        <h3 className="text-lg font-bold text-gray-900 mb-1">Website Images</h3>
+        <p className="text-sm text-gray-500 mb-6">Manage all images used across the website. Use external public image URLs (e.g. Unsplash, Imgur, or your own CDN).</p>
+
+        <div className="space-y-4">
+          {imageFields.map(({ key, label }) => (
+            <div key={key} className="border border-gray-200 rounded-lg p-4">
+              <InputField
+                label={label}
+                value={(images as Record<string, string>)[key] || ""}
+                onChange={(v) => updateImage(key, v)}
+              />
+              {(images as Record<string, string>)[key] && (
+                <div className="mt-2">
+                  <img
+                    src={(images as Record<string, string>)[key]}
+                    alt={label}
+                    className="w-full h-24 object-cover rounded-lg"
+                  />
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <h3 className="text-lg font-bold text-gray-900 mb-1">Page Background Images</h3>
+        <p className="text-sm text-gray-500 mb-6">Add a subtle background image with transparency to non-home pages. Leave the URL empty to disable.</p>
+
+        <div className="space-y-4">
+          {pages.map(({ key, label }) => {
+            const bg = pageBackgrounds[key] || { image: "", opacity: 0.05 };
+            return (
+              <div key={key} className="border border-gray-200 rounded-lg p-4">
+                <h4 className="font-semibold text-gray-900 mb-3">{label} Page</h4>
+                <InputField
+                  label="Background Image URL"
+                  value={bg.image}
+                  onChange={(v) => updatePageBg(key, "image", v)}
+                />
+                <div className="mt-3">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Opacity: {(bg.opacity * 100).toFixed(0)}%
+                  </label>
+                  <input
+                    type="range"
+                    min="1"
+                    max="30"
+                    value={Math.round(bg.opacity * 100)}
+                    onChange={(e) => updatePageBg(key, "opacity", parseInt(e.target.value) / 100)}
+                    className="w-full"
+                  />
+                  <div className="flex justify-between text-xs text-gray-400 mt-1">
+                    <span>1% (very subtle)</span>
+                    <span>30% (strong)</span>
+                  </div>
+                </div>
+                {bg.image && (
+                  <div className="mt-3 relative h-20 rounded-lg overflow-hidden">
+                    <img src={bg.image} alt={`${label} background`} className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-white" style={{ opacity: 1 - bg.opacity }} />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="text-xs font-medium text-gray-600 bg-white/80 px-2 py-1 rounded">
+                        Preview at {(bg.opacity * 100).toFixed(0)}% opacity
+                      </span>
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }

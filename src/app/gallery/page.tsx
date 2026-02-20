@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getContent } from "@/lib/content";
 import GalleryLightbox from "@/components/GalleryLightbox";
+import PageBackground from "@/components/PageBackground";
 
 export const metadata: Metadata = {
   title: "Gallery & Portfolio",
@@ -9,10 +10,12 @@ export const metadata: Metadata = {
 };
 
 export default function GalleryPage() {
-  const { gallery } = getContent();
+  const content = getContent();
+  const { gallery, pageBackgrounds } = content;
+  const bg = pageBackgrounds?.gallery;
 
   return (
-    <div className="bg-white">
+    <PageBackground image={bg?.image} opacity={bg?.opacity}>
       {/* Page Hero */}
       <section className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -27,6 +30,6 @@ export default function GalleryPage() {
           <GalleryLightbox categories={gallery.categories} />
         </div>
       </section>
-    </div>
+    </PageBackground>
   );
 }
