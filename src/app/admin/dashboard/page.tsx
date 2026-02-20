@@ -830,6 +830,44 @@ function ImagesEditor({ content, setContent }: EditorProps) {
       </div>
 
       <div>
+        <h3 className="text-lg font-bold text-gray-900 mb-1">Page Banner Images</h3>
+        <p className="text-sm text-gray-500 mb-6">Full-width banner images shown at the top of each page.</p>
+
+        <div className="space-y-4">
+          {[
+            { section: "about", label: "About Page" },
+            { section: "contact", label: "Contact Page" },
+            { section: "gallery", label: "Gallery Page" },
+            { section: "clients", label: "Clients Page" },
+            { section: "printing", label: "Printing Services" },
+            { section: "packaging", label: "Packaging Solutions" },
+          ].map(({ section, label }) => {
+            const sectionData = (content as Record<string, Record<string, unknown>>)[section];
+            const bannerImage = (sectionData?.bannerImage as string) || "";
+            return (
+              <div key={section} className="border border-gray-200 rounded-lg p-4">
+                <InputField
+                  label={`${label} Banner`}
+                  value={bannerImage}
+                  onChange={(v) => {
+                    setContent({
+                      ...content,
+                      [section]: { ...sectionData, bannerImage: v },
+                    } as SiteContent);
+                  }}
+                />
+                {bannerImage && (
+                  <div className="mt-2">
+                    <img src={bannerImage} alt={`${label} banner`} className="w-full h-24 object-cover rounded-lg" />
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      <div>
         <h3 className="text-lg font-bold text-gray-900 mb-1">Page Background Images</h3>
         <p className="text-sm text-gray-500 mb-6">Add a subtle background image with transparency to non-home pages. Leave the URL empty to disable.</p>
 

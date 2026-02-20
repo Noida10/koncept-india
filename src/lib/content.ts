@@ -9,6 +9,9 @@ export type SiteContent = {
     registeredOffice: { address: string; mapUrl: string };
     branchOffice: { address: string; mapUrl: string };
   };
+  contact: {
+    bannerImage: string;
+  };
   home: {
     heroTitle: string;
     heroSubtitle: string;
@@ -20,6 +23,7 @@ export type SiteContent = {
     clientStrip: string[];
   };
   about: {
+    bannerImage: string;
     title: string;
     overview: string[];
     capabilities: string[];
@@ -70,6 +74,7 @@ export type SiteContent = {
     };
   };
   gallery: {
+    bannerImage: string;
     title: string;
     subtitle: string;
     categories: {
@@ -80,6 +85,7 @@ export type SiteContent = {
     }[];
   };
   clients: {
+    bannerImage: string;
     title: string;
     subtitle: string;
     categories: {

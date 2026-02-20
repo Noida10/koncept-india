@@ -13,6 +13,9 @@
       "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.0!2d75.78!3d26.82!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sSanganer+Jaipur!5e0!3m2!1sen!2sin!4v1"
     }
   },
+  "contact": {
+    "bannerImage": "https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=1600&auto=format&fit=crop"
+  },
   "home": {
     "heroTitle": "Premium Printing & Packaging Solutions",
     "heroSubtitle": "Welcome to Koncept India Enterprises. We are one of the leading high-quality printers equipped with in-house facilities featuring the latest state-of-the-art technology.",
@@ -91,6 +94,7 @@
     ]
   },
   "about": {
+    "bannerImage": "https://images.unsplash.com/photo-1603513492128-ba7bc9b3e143?q=80&w=1600&auto=format&fit=crop",
     "title": "About Koncept India Enterprises",
     "overview": [
       "Koncept India Enterprises is dedicated to giving the best quality service and meeting committed delivery schedules.",
@@ -247,6 +251,7 @@
     "packaging": { "image": "", "opacity": 0.05 }
   },
   "gallery": {
+    "bannerImage": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?q=80&w=1600&auto=format&fit=crop",
     "title": "Gallery & Portfolio",
     "subtitle": "A showcase of our finest work across printing, packaging, and corporate solutions.",
     "categories": [
@@ -297,6 +302,7 @@
     ]
   },
   "clients": {
+    "bannerImage": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=1600&auto=format&fit=crop",
     "title": "Our Clients",
     "subtitle": "Trusted by leading hospitality brands and corporate enterprises across India.",
     "categories": [

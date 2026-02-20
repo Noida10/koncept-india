@@ -42,13 +42,6 @@ export default function HomePage() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12 w-full">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6 bg-amber-700/20 border border-amber-700/30">
-              <div className="w-1.5 h-1.5 bg-amber-600 rounded-full animate-pulse"></div>
-              <span className="text-xs font-semibold uppercase tracking-wider text-amber-300">
-                Since 2008
-              </span>
-            </div>
-
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6">
               {home.heroTitle}
             </h1>

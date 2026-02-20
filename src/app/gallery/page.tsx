@@ -16,11 +16,23 @@ export default function GalleryPage() {
 
   return (
     <PageBackground image={bg?.image} opacity={bg?.opacity}>
-      {/* Page Hero */}
-      <section className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-16 sm:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4">{gallery.title}</h1>
-          <p className="text-gray-300 text-lg max-w-2xl">{gallery.subtitle}</p>
+      {/* Banner Image */}
+      <section className="relative h-[280px] sm:h-[340px] overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: gallery.bannerImage
+              ? `url('${gallery.bannerImage}')`
+              : undefined,
+            backgroundColor: gallery.bannerImage ? undefined : "#1B3A88",
+          }}
+        />
+        <div className="absolute inset-0 bg-gray-900/60" />
+        <div className="relative z-10 h-full flex items-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">{gallery.title}</h1>
+            <p className="text-gray-300 text-lg max-w-2xl">{gallery.subtitle}</p>
+          </div>
         </div>
       </section>
 
