@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "";
+const WEB3FORMS_KEY = "2b6afd65-6bb9-4704-b1c3-5a681d4ceb21";
 
 export default function ContactForm() {
   const [form, setForm] = useState({
