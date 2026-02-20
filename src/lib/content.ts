@@ -47,7 +47,7 @@ export type SiteContent = {
       id: string;
       name: string;
       description: string;
-      items: string[];
+      items: { name: string; image: string }[];
     }[];
   };
   packaging: {
@@ -58,7 +58,7 @@ export type SiteContent = {
       id: string;
       name: string;
       description: string;
-      items: string[];
+      items: { name: string; image: string }[];
     }[];
   };
   images: {

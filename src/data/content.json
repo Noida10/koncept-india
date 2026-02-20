@@ -182,20 +182,20 @@
         "name": "Paper Printing",
         "description": "High-quality printing solutions for every business need.",
         "items": [
-          "Leaflets / Fliers",
-          "Corporate Stationary",
-          "Newsletters / Magazines",
-          "Calendars",
-          "Labels / Tags",
-          "Catalogues / Books / Brochures",
-          "Coffee Table Books",
-          "Carry Bags",
-          "Wedding Invitations / Greeting Cards",
-          "Danglers / P.O.P Material",
-          "Invoice Jackets",
-          "Notepads, Diaries",
-          "Personalized Stationary",
-          "Packaging Boxes"
+          { "name": "Leaflets / Fliers", "image": "" },
+          { "name": "Corporate Stationary", "image": "" },
+          { "name": "Newsletters / Magazines", "image": "" },
+          { "name": "Calendars", "image": "" },
+          { "name": "Labels / Tags", "image": "" },
+          { "name": "Catalogues / Books / Brochures", "image": "" },
+          { "name": "Coffee Table Books", "image": "" },
+          { "name": "Carry Bags", "image": "" },
+          { "name": "Wedding Invitations / Greeting Cards", "image": "" },
+          { "name": "Danglers / P.O.P Material", "image": "" },
+          { "name": "Invoice Jackets", "image": "" },
+          { "name": "Notepads, Diaries", "image": "" },
+          { "name": "Personalized Stationary", "image": "" },
+          { "name": "Packaging Boxes", "image": "" }
         ]
       }
     ]
@@ -210,14 +210,14 @@
         "name": "Corporate Gifting",
         "description": "Premium gifts for corporate branding and client engagement.",
         "items": [
-          "Pens, Pencils",
-          "Showpieces",
-          "Gift Sets",
-          "Phone Covers",
-          "Power Banks",
-          "Sticky Notes",
-          "T-shirts, Caps",
-          "Mugs"
+          { "name": "Pens, Pencils", "image": "" },
+          { "name": "Showpieces", "image": "" },
+          { "name": "Gift Sets", "image": "" },
+          { "name": "Phone Covers", "image": "" },
+          { "name": "Power Banks", "image": "" },
+          { "name": "Sticky Notes", "image": "" },
+          { "name": "T-shirts, Caps", "image": "" },
+          { "name": "Mugs", "image": "" }
         ]
       },
       {
@@ -225,13 +225,13 @@
         "name": "Leather Products",
         "description": "Handcrafted leather goods for professionals and enterprises.",
         "items": [
-          "Laptop Bags",
-          "Gym Bags",
-          "Duffle Bags",
-          "Passport Holders",
-          "Tablet Sleeves",
-          "Laptop Covers / Laptop Sleeves",
-          "Wallets / Money Clips"
+          { "name": "Laptop Bags", "image": "" },
+          { "name": "Gym Bags", "image": "" },
+          { "name": "Duffle Bags", "image": "" },
+          { "name": "Passport Holders", "image": "" },
+          { "name": "Tablet Sleeves", "image": "" },
+          { "name": "Laptop Covers / Laptop Sleeves", "image": "" },
+          { "name": "Wallets / Money Clips", "image": "" }
         ]
       }
     ]

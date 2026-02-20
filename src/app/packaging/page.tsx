@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getContent } from "@/lib/content";
 import ScrollReveal from "@/components/ScrollReveal";
 import PageBackground from "@/components/PageBackground";
+import ServiceItemCard from "@/components/ServiceItemCard";
 
 export const metadata: Metadata = {
   title: "Packaging Solutions",
@@ -61,11 +62,8 @@ export default function PackagingPage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {category.items.map((item, i) => (
-                  <ScrollReveal key={item} delay={i * 50}>
-                    <div className="group flex items-center gap-3 p-4 bg-gray-50 rounded-lg hover:bg-amber-50 hover:shadow-sm transition-all border border-transparent hover:border-amber-200">
-                      <div className="w-2 h-2 bg-amber-700 rounded-full shrink-0 group-hover:scale-125 transition-transform"></div>
-                      <span className="text-gray-700 font-medium">{item}</span>
-                    </div>
+                  <ScrollReveal key={item.name} delay={i * 50}>
+                    <ServiceItemCard name={item.name} image={item.image} />
                   </ScrollReveal>
                 ))}
               </div>

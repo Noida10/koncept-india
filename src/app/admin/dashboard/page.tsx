@@ -644,11 +644,70 @@ function ClientsEditor({ content, setContent }: EditorProps) {
   );
 }
 
+function ServiceItemsEditor({
+  label,
+  items,
+  onChange,
+}: {
+  label: string;
+  items: { name: string; image: string }[];
+  onChange: (items: { name: string; image: string }[]) => void;
+}) {
+  return (
+    <div>
+      <label className="block text-sm font-medium text-gray-700 mb-2">{label}</label>
+      {items.map((item, i) => (
+        <div key={i} className="border border-gray-100 rounded-lg p-3 mb-2 bg-gray-50">
+          <div className="flex gap-2 items-start">
+            <div className="flex-1 space-y-2">
+              <input
+                value={item.name}
+                onChange={(e) => {
+                  const updated = [...items];
+                  updated[i] = { ...updated[i], name: e.target.value };
+                  onChange(updated);
+                }}
+                placeholder="Item name"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 outline-none focus:ring-2 focus:ring-amber-500"
+              />
+              <input
+                value={item.image}
+                onChange={(e) => {
+                  const updated = [...items];
+                  updated[i] = { ...updated[i], image: e.target.value };
+                  onChange(updated);
+                }}
+                placeholder="Image URL (optional)"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 outline-none focus:ring-2 focus:ring-amber-500"
+              />
+            </div>
+            {item.image && (
+              <img src={item.image} alt={item.name} className="w-16 h-16 object-cover rounded-lg shrink-0" />
+            )}
+            <button
+              onClick={() => onChange(items.filter((_, idx) => idx !== i))}
+              className="px-2 py-2 text-red-600 hover:bg-red-50 rounded-lg text-sm shrink-0"
+            >
+              Remove
+            </button>
+          </div>
+        </div>
+      ))}
+      <button
+        onClick={() => onChange([...items, { name: "", image: "" }])}
+        className="text-sm text-amber-700 hover:text-amber-800 font-medium"
+      >
+        + Add item
+      </button>
+    </div>
+  );
+}
+
 function PrintingEditor({ content, setContent }: EditorProps) {
   const printing = content.printing;
   if (!printing) return <p className="text-gray-500">Printing data not found in content.</p>;
 
-  function updateCategory(catIdx: number, field: string, value: string | string[]) {
+  function updateCategory(catIdx: number, field: string, value: unknown) {
     const updated = [...printing.categories];
     updated[catIdx] = { ...updated[catIdx], [field]: value };
     setContent({ ...content, printing: { ...printing, categories: updated } });
@@ -687,14 +746,14 @@ function PrintingEditor({ content, setContent }: EditorProps) {
             <TextAreaField label="Description" value={cat.description} onChange={(v) => updateCategory(catIdx, "description", v)} />
           </div>
           <div className="mt-3">
-            <ListEditor label="Items" items={cat.items} onChange={(v) => updateCategory(catIdx, "items", v)} />
+            <ServiceItemsEditor label="Items" items={cat.items} onChange={(v) => updateCategory(catIdx, "items", v)} />
           </div>
         </div>
       ))}
 
       <button
         onClick={() => {
-          const newCat = { id: `printing-${Date.now()}`, name: "New Category", description: "", items: [] as string[] };
+          const newCat = { id: `printing-${Date.now()}`, name: "New Category", description: "", items: [] as { name: string; image: string }[] };
           setContent({ ...content, printing: { ...printing, categories: [...printing.categories, newCat] } });
         }}
         className="text-sm text-amber-700 hover:text-amber-800 font-medium"
@@ -709,7 +768,7 @@ function PackagingEditor({ content, setContent }: EditorProps) {
   const packaging = content.packaging;
   if (!packaging) return <p className="text-gray-500">Packaging data not found in content.</p>;
 
-  function updateCategory(catIdx: number, field: string, value: string | string[]) {
+  function updateCategory(catIdx: number, field: string, value: unknown) {
     const updated = [...packaging.categories];
     updated[catIdx] = { ...updated[catIdx], [field]: value };
     setContent({ ...content, packaging: { ...packaging, categories: updated } });
@@ -748,14 +807,14 @@ function PackagingEditor({ content, setContent }: EditorProps) {
             <TextAreaField label="Description" value={cat.description} onChange={(v) => updateCategory(catIdx, "description", v)} />
           </div>
           <div className="mt-3">
-            <ListEditor label="Items" items={cat.items} onChange={(v) => updateCategory(catIdx, "items", v)} />
+            <ServiceItemsEditor label="Items" items={cat.items} onChange={(v) => updateCategory(catIdx, "items", v)} />
           </div>
         </div>
       ))}
 
       <button
         onClick={() => {
-          const newCat = { id: `packaging-${Date.now()}`, name: "New Category", description: "", items: [] as string[] };
+          const newCat = { id: `packaging-${Date.now()}`, name: "New Category", description: "", items: [] as { name: string; image: string }[] };
           setContent({ ...content, packaging: { ...packaging, categories: [...packaging.categories, newCat] } });
         }}
         className="text-sm text-amber-700 hover:text-amber-800 font-medium"
