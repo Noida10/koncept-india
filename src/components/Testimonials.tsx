@@ -2,38 +2,30 @@
 import { useState, useEffect, useCallback } from "react";
 import ScrollReveal from "./ScrollReveal";
 
-const testimonials = [
-  {
-    quote:
-      "Koncept India has been our trusted partner for all hotel collaterals. The quality and attention to detail is consistently outstanding.",
-    author: "General Manager",
-    company: "JW Marriott, New Delhi",
-  },
-  {
-    quote:
-      "From luxury rigid boxes to corporate stationery, every product they deliver exceeds our expectations. Highly recommended.",
-    author: "Procurement Head",
-    company: "Hyatt Regency",
-  },
-  {
-    quote:
-      "Their eco-friendly amenity kits were a game-changer for our sustainability goals. Excellent quality with fast turnaround.",
-    author: "Operations Director",
-    company: "Pullman & Novotel",
-  },
-];
+type Testimonial = {
+  quote: string;
+  author: string;
+  company: string;
+};
 
-export default function Testimonials() {
+export default function Testimonials({
+  testimonials,
+}: {
+  testimonials: Testimonial[];
+}) {
   const [active, setActive] = useState(0);
 
   const goNext = useCallback(() => {
     setActive((prev) => (prev + 1) % testimonials.length);
-  }, []);
+  }, [testimonials.length]);
 
   useEffect(() => {
+    if (testimonials.length <= 1) return;
     const timer = setInterval(goNext, 6000);
     return () => clearInterval(timer);
-  }, [goNext]);
+  }, [goNext, testimonials.length]);
+
+  if (!testimonials.length) return null;
 
   return (
     <section className="py-16 sm:py-20 bg-gray-50">
@@ -75,18 +67,20 @@ export default function Testimonials() {
         </div>
 
         {/* Dots */}
-        <div className="flex justify-center gap-2 mt-8">
-          {testimonials.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setActive(i)}
-              className={`w-2.5 h-2.5 rounded-full transition-colors ${
-                i === active ? "bg-amber-700" : "bg-gray-300"
-              }`}
-              aria-label={`Testimonial ${i + 1}`}
-            />
-          ))}
-        </div>
+        {testimonials.length > 1 && (
+          <div className="flex justify-center gap-2 mt-8">
+            {testimonials.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActive(i)}
+                className={`w-2.5 h-2.5 rounded-full transition-colors ${
+                  i === active ? "bg-amber-700" : "bg-gray-300"
+                }`}
+                aria-label={`Testimonial ${i + 1}`}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

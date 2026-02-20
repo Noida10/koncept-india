@@ -20,7 +20,8 @@ export type SiteContent = {
     heroTextColor: "light" | "dark";
     heroProducts: { title: string; tagline: string; image: string; href: string }[];
     quickLinks: { title: string; description: string; icon: string; href: string }[];
-    clientStrip: string[];
+    clientStrip: { name: string; logo: string }[];
+    testimonials: { quote: string; author: string; company: string }[];
   };
   about: {
     bannerImage: string;

@@ -114,7 +114,7 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials */}
-      <Testimonials />
+      <Testimonials testimonials={home.testimonials || []} />
 
       {/* CTA — image background */}
       <section className="relative py-20 text-white overflow-hidden">

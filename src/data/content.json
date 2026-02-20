@@ -81,16 +81,33 @@
       }
     ],
     "clientStrip": [
-      "JW Marriott",
-      "Hyatt",
-      "BMW",
-      "Bacardi",
-      "Pullman",
-      "Novotel",
-      "Fairmont",
-      "W Hotels",
-      "Raffles",
-      "DLF"
+      { "name": "JW Marriott", "logo": "" },
+      { "name": "Hyatt", "logo": "" },
+      { "name": "BMW", "logo": "" },
+      { "name": "Bacardi", "logo": "" },
+      { "name": "Pullman", "logo": "" },
+      { "name": "Novotel", "logo": "" },
+      { "name": "Fairmont", "logo": "" },
+      { "name": "W Hotels", "logo": "" },
+      { "name": "Raffles", "logo": "" },
+      { "name": "DLF", "logo": "" }
+    ],
+    "testimonials": [
+      {
+        "quote": "Koncept India has been our trusted partner for all hotel collaterals. The quality and attention to detail is consistently outstanding.",
+        "author": "General Manager",
+        "company": "JW Marriott, New Delhi"
+      },
+      {
+        "quote": "From luxury rigid boxes to corporate stationery, every product they deliver exceeds our expectations. Highly recommended.",
+        "author": "Procurement Head",
+        "company": "Hyatt Regency"
+      },
+      {
+        "quote": "Their eco-friendly amenity kits were a game-changer for our sustainability goals. Excellent quality with fast turnaround.",
+        "author": "Operations Director",
+        "company": "Pullman & Novotel"
+      }
     ]
   },
   "about": {

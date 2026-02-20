@@ -231,7 +231,7 @@ type EditorProps = {
 
 function HomeEditor({ content, setContent }: EditorProps) {
   const { home } = content;
-  const update = (field: string, value: string | string[]) => {
+  const update = (field: string, value: unknown) => {
     setContent({ ...content, home: { ...home, [field]: value } });
   };
 
@@ -319,7 +319,53 @@ function HomeEditor({ content, setContent }: EditorProps) {
         </p>
       </div>
 
-      <ListEditor label="Client Strip Names" items={home.clientStrip} onChange={(v) => update("clientStrip", v)} />
+      {/* Client Strip */}
+      <div>
+        <h4 className="text-sm font-medium text-gray-700 mb-3">Client Strip (Logo priority, text fallback)</h4>
+        {home.clientStrip.map((client, i) => (
+          <div key={i} className="border border-gray-100 rounded-lg p-3 mb-2 bg-gray-50">
+            <div className="flex gap-2 items-start">
+              <div className="flex-1 space-y-2">
+                <input
+                  value={client.name}
+                  onChange={(e) => {
+                    const updated = [...home.clientStrip];
+                    updated[i] = { ...updated[i], name: e.target.value };
+                    update("clientStrip", updated);
+                  }}
+                  placeholder="Client name"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 outline-none focus:ring-2 focus:ring-amber-500"
+                />
+                <input
+                  value={client.logo}
+                  onChange={(e) => {
+                    const updated = [...home.clientStrip];
+                    updated[i] = { ...updated[i], logo: e.target.value };
+                    update("clientStrip", updated);
+                  }}
+                  placeholder="Logo image URL (displays instead of text when set)"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 outline-none focus:ring-2 focus:ring-amber-500"
+                />
+              </div>
+              {client.logo && (
+                <img src={client.logo} alt={client.name} className="w-16 h-10 object-contain rounded border border-gray-200 bg-white p-1 shrink-0" />
+              )}
+              <button
+                onClick={() => update("clientStrip", home.clientStrip.filter((_, idx) => idx !== i))}
+                className="px-2 py-2 text-red-600 hover:bg-red-50 rounded-lg text-sm shrink-0"
+              >
+                Remove
+              </button>
+            </div>
+          </div>
+        ))}
+        <button
+          onClick={() => update("clientStrip", [...home.clientStrip, { name: "", logo: "" }])}
+          className="text-sm text-amber-700 hover:text-amber-800 font-medium"
+        >
+          + Add Client
+        </button>
+      </div>
 
       {/* Hero Products Showcase */}
       <div>
@@ -434,6 +480,68 @@ function HomeEditor({ content, setContent }: EditorProps) {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Testimonials */}
+      <div>
+        <h4 className="text-sm font-medium text-gray-700 mb-3">What Our Clients Say (Testimonials)</h4>
+        {(home.testimonials || []).map((t, i) => (
+          <div key={i} className="border border-gray-200 rounded-lg p-4 mb-3">
+            <div className="flex justify-between items-center mb-3">
+              <span className="text-xs font-semibold text-gray-400 uppercase">Testimonial {i + 1}</span>
+              <button
+                onClick={() => {
+                  const updated = (home.testimonials || []).filter((_, idx) => idx !== i);
+                  update("testimonials", updated);
+                }}
+                className="text-xs text-red-500 hover:text-red-700"
+              >
+                Remove
+              </button>
+            </div>
+            <div className="space-y-3">
+              <TextAreaField
+                label="Quote"
+                value={t.quote}
+                rows={2}
+                onChange={(v) => {
+                  const updated = [...(home.testimonials || [])];
+                  updated[i] = { ...updated[i], quote: v };
+                  update("testimonials", updated);
+                }}
+              />
+              <div className="grid grid-cols-2 gap-3">
+                <InputField
+                  label="Author / Role"
+                  value={t.author}
+                  onChange={(v) => {
+                    const updated = [...(home.testimonials || [])];
+                    updated[i] = { ...updated[i], author: v };
+                    update("testimonials", updated);
+                  }}
+                />
+                <InputField
+                  label="Company"
+                  value={t.company}
+                  onChange={(v) => {
+                    const updated = [...(home.testimonials || [])];
+                    updated[i] = { ...updated[i], company: v };
+                    update("testimonials", updated);
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+        ))}
+        <button
+          onClick={() => {
+            const updated = [...(home.testimonials || []), { quote: "", author: "", company: "" }];
+            update("testimonials", updated);
+          }}
+          className="text-sm text-amber-700 hover:text-amber-800 font-medium"
+        >
+          + Add Testimonial
+        </button>
       </div>
     </div>
   );
