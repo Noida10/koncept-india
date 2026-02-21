@@ -54,6 +54,10 @@
         "href": "/packaging#corporate-gifting"
       }
     ],
+    "welcome": {
+      "heading": "Welcome to Koncept India Enterprises",
+      "content": "We provide comprehensive printing and packaging services designed to meet the evolving needs of corporate and commercial clients. With advanced in-house infrastructure and a commitment to quality, we deliver precision, consistency, and timely execution across every project."
+    },
     "quickLinks": [
       {
         "title": "Printing Services",
@@ -152,6 +156,7 @@
       "We boast an in-house graphics designing unit capable of designing, color correction, and proofing using high-end PCs and Macintosh systems.",
       "A synchronized proofing system is available to convert desired jobs into prints for proofing purposes."
     ],
+    "founderName": "Mr. Amit Gupta",
     "visionMission": [
       "To recognize the customer's right to Quality, Services, Timely Delivery, and Reasonable Cost.",
       "To ensure maximum satisfaction to the clients.",

@@ -67,21 +67,19 @@ export default function HeroProductCarousel({ products }: { products: HeroProduc
         <div className="max-w-2xl">
           <h1
             key={`title-${active}`}
-            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6 animate-fade-in-up"
+            className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight mb-6 transition-opacity duration-700"
           >
             {current.title}
           </h1>
           <p
             key={`tagline-${active}`}
-            className="text-base sm:text-lg mb-8 leading-relaxed max-w-xl text-gray-300 animate-fade-in-up"
-            style={{ animationDelay: "100ms" }}
+            className="text-sm sm:text-base mb-8 leading-relaxed max-w-xl text-gray-200 transition-opacity duration-700"
           >
             {current.tagline}
           </p>
           <div
             key={`cta-${active}`}
-            className="flex flex-wrap gap-4 animate-fade-in-up"
-            style={{ animationDelay: "200ms" }}
+            className="flex flex-wrap gap-4 transition-opacity duration-700"
           >
             <Link
               href={current.href}

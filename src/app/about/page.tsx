@@ -48,7 +48,7 @@ export default function AboutPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
               <div className="w-16 h-1 bg-amber-700 mb-6"></div>
               {about.overview.map((p, i) => (
-                <p key={i} className="text-gray-600 leading-relaxed mb-4 text-lg">
+                <p key={i} className="text-gray-700 leading-relaxed mb-4 text-lg">
                   {p}
                 </p>
               ))}
@@ -82,12 +82,7 @@ export default function AboutPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Machinery</h2>
               <div className="w-16 h-1 bg-amber-700 mb-6"></div>
               {about.capabilities.map((cap, i) => (
-                <div key={i} className="flex items-start gap-4 mb-4">
-                  <div className="w-8 h-8 bg-amber-700 text-white rounded-lg flex items-center justify-center shrink-0 text-sm font-bold mt-0.5">
-                    {i + 1}
-                  </div>
-                  <p className="text-gray-600 leading-relaxed text-lg">{cap}</p>
-                </div>
+                <p key={i} className="text-gray-700 leading-relaxed text-lg mb-4">{cap}</p>
               ))}
             </ScrollReveal>
           </div>
@@ -101,12 +96,12 @@ export default function AboutPage() {
             <ScrollReveal>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Meet the Founder</h2>
               <div className="w-16 h-1 bg-amber-700 mb-6"></div>
+              {about.founderName && (
+                <p className="text-xl font-bold text-gray-900 mb-4">{about.founderName}</p>
+              )}
               <div className="space-y-4">
                 {about.visionMission.map((item, i) => (
-                  <div key={i} className="flex items-start gap-4">
-                    <div className="w-2 h-2 bg-amber-700 rounded-full mt-2.5 shrink-0"></div>
-                    <p className="text-gray-600 leading-relaxed text-lg">{item}</p>
-                  </div>
+                  <p key={i} className="text-gray-700 leading-relaxed text-lg">{item}</p>
                 ))}
               </div>
             </ScrollReveal>

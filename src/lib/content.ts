@@ -19,6 +19,7 @@ export type SiteContent = {
     heroBackground: string;
     heroTextColor: "light" | "dark";
     heroProducts: { title: string; tagline: string; image: string; href: string }[];
+    welcome: { heading: string; content: string };
     quickLinks: { title: string; description: string; icon: string; href: string }[];
     clientStrip: { name: string; logo: string }[];
     testimonials: { quote: string; author: string; company: string }[];
@@ -28,6 +29,7 @@ export type SiteContent = {
     title: string;
     overview: string[];
     capabilities: string[];
+    founderName: string;
     visionMission: string[];
   };
   products: {
