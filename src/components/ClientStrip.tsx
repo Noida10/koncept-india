@@ -12,14 +12,14 @@ export default function ClientStrip({ clients }: { clients: Client[] }) {
         {doubled.map((client, i) => (
           <div
             key={`${client.name}-${i}`}
-            className="inline-flex flex-col items-center justify-center mx-8 min-w-[140px]"
+            className="inline-flex flex-col items-center justify-center mx-10 min-w-[160px]"
           >
-            <div className="w-[120px] h-[60px] bg-white rounded-lg shadow-sm border border-gray-100 flex items-center justify-center overflow-hidden">
+            <div className="w-[160px] h-[80px] flex items-center justify-center">
               {client.logo ? (
                 <img
                   src={client.logo}
                   alt={client.name}
-                  className="max-w-full max-h-full object-contain p-2"
+                  className="max-w-full max-h-full object-contain grayscale hover:grayscale-0 transition-all duration-300"
                   onError={(e) => {
                     const target = e.currentTarget;
                     target.style.display = "none";
@@ -29,7 +29,7 @@ export default function ClientStrip({ clients }: { clients: Client[] }) {
                 />
               ) : null}
               <span
-                className={`text-gray-700 font-semibold text-xs text-center px-2 items-center justify-center w-full h-full ${
+                className={`text-gray-500 font-semibold text-sm text-center items-center justify-center w-full h-full ${
                   client.logo ? "hidden" : "flex"
                 }`}
               >
