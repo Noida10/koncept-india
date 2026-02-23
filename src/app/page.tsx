@@ -15,7 +15,7 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Section — full viewport with dark overlay like Vintage Offset */}
-      <section className="relative overflow-hidden text-white min-h-[80vh] flex items-center">
+      <section className="relative overflow-hidden text-white min-h-[50vh] flex items-center">
         <div className="absolute inset-0">
           <img
             src={home.heroBackground}
