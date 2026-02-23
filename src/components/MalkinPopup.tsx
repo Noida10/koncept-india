@@ -25,6 +25,8 @@ export default function MalkinPopup() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    const today = new Date().toISOString().slice(0, 10);
+    if (today !== "2026-02-23") return;
     if (sessionStorage.getItem("malkin_done")) return;
     const timer = setTimeout(() => {
       setStage(0);
