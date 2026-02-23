@@ -11,12 +11,12 @@ const popups = [
   {
     image: false,
     title: "🤨 Really? You dare to close me?",
-    subtitle: "Himmat kaise hui teri! 😤",
+    subtitle: "Himmat kaise hui tumhari! 😤",
   },
   {
     image: false,
     title: "😂 Arre baap re! Phir se band kiya?",
-    subtitle: "Chal maaf kiya... ab kaam kar! 🫡",
+    subtitle: "Chalo ab kaam karo! 🫡",
   },
 ];
 
