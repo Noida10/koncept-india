@@ -15,7 +15,7 @@ const popups = [
   },
   {
     image: false,
-    title: "😂 Arre baap re! Phir se band karegi?",
+    title: "😂 Arre baap re! Phir se band kiya?",
     subtitle: "Chal maaf kiya... ab kaam kar! 🫡",
   },
 ];
