@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { getContent } from "@/lib/content";
 import ClientStrip from "@/components/ClientStrip";
-import HeroProductCarousel from "@/components/HeroProductCarousel";
 import ScrollReveal from "@/components/ScrollReveal";
 import Testimonials from "@/components/Testimonials";
-
+import StatsSection from "@/components/StatsSection";
+import RotatingCTA from "@/components/RotatingCTA";
+import IndustryTabs from "@/components/IndustryTabs";
+import PortfolioGrid from "@/components/PortfolioGrid";
 
 export default function HomePage() {
   const content = getContent();
@@ -12,33 +14,98 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Hero Section — full viewport slideshow */}
-      <section className="relative overflow-hidden text-white h-[70vh] flex items-center">
-        <HeroProductCarousel products={home.heroProducts} />
+      {/* Hero Section — full viewport with dark overlay like Vintage Offset */}
+      <section className="relative overflow-hidden text-white min-h-[80vh] flex items-center">
+        <div className="absolute inset-0">
+          <img
+            src={home.heroBackground}
+            alt="Koncept India Printing Facility"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/70 to-gray-900/50" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
+          <div className="max-w-2xl">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6 animate-fade-in-up">
+              {home.heroTitle}
+            </h1>
+            <p
+              className="text-base sm:text-lg mb-8 leading-relaxed max-w-xl text-gray-300 animate-fade-in-up"
+              style={{ animationDelay: "100ms" }}
+            >
+              {home.heroSubtitle}
+            </p>
+            <div
+              className="flex flex-wrap gap-4 animate-fade-in-up"
+              style={{ animationDelay: "200ms" }}
+            >
+              <Link
+                href="/contact"
+                className="inline-flex items-center px-8 py-3.5 bg-amber-700 hover:bg-amber-800 text-white font-semibold rounded-lg transition-colors shadow-lg shadow-amber-900/30"
+              >
+                Start Your Project
+                <svg
+                  className="w-4 h-4 ml-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
+              </Link>
+              <Link
+                href="/gallery"
+                className="inline-flex items-center px-8 py-3.5 border-2 border-white/20 hover:border-white/40 hover:bg-white/5 text-white font-semibold rounded-lg transition-all"
+              >
+                View Our Work
+              </Link>
+            </div>
+          </div>
+        </div>
       </section>
 
-      {/* Our Expertise */}
+      {/* Our Expertise — 4 image cards like Vintage Offset "Packaging Capabilities" */}
       <section className="py-16 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Our Expertise
             </h2>
-            <div className="w-20 h-1 bg-amber-700 mx-auto"></div>
+            <div className="w-20 h-1 bg-amber-700 mx-auto mb-4"></div>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Comprehensive printing, packaging, gifting, and leather solutions
+              tailored to elevate your brand.
+            </p>
           </ScrollReveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {home.quickLinks.map((link, i) => (
               <ScrollReveal key={link.title} delay={i * 100}>
                 <Link
                   href={link.href}
-                  className="group block p-6 bg-white border border-gray-200 rounded-xl hover:shadow-lg hover:border-amber-200 transition-all"
+                  className="group block rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-xl transition-all duration-300"
                 >
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    {link.title}
-                  </h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">
-                    {link.description}
-                  </p>
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <img
+                      src={home.heroProducts[i]?.image || ""}
+                      alt={link.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent" />
+                  </div>
+                  <div className="p-5">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-1 group-hover:text-amber-700 transition-colors">
+                      {link.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {link.description}
+                    </p>
+                  </div>
                 </Link>
               </ScrollReveal>
             ))}
@@ -46,10 +113,93 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Premium Solutions Intro — left-aligned with icon */}
+      <section className="py-16 sm:py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <ScrollReveal>
+              <div className="flex items-start gap-4 mb-6">
+                <div className="shrink-0 w-12 h-12 rounded-lg bg-amber-700 flex items-center justify-center text-white">
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                    />
+                  </svg>
+                </div>
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
+                  Premium Printing & Packaging for Leading Brands
+                </h2>
+              </div>
+              <p className="text-gray-600 leading-relaxed mb-6 text-lg">
+                With over two decades of experience, Koncept India Enterprises
+                delivers end-to-end printing, packaging, corporate gifting, and
+                leather product solutions. Our in-house facility features
+                state-of-the-art technology for multi-colour offset, digital,
+                screen, UV, and leaf printing.
+              </p>
+              <p className="text-gray-600 leading-relaxed mb-8">
+                Trusted by hospitality giants like JW Marriott, Hyatt, and
+                Pullman, and corporate leaders like BMW and DLF — we combine
+                craftsmanship with innovation to bring your brand vision to life.
+              </p>
+              <Link
+                href="/about"
+                className="inline-flex items-center text-amber-700 hover:text-amber-800 font-semibold transition-colors"
+              >
+                Learn More About Us
+                <svg
+                  className="w-4 h-4 ml-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
+              </Link>
+            </ScrollReveal>
+            <ScrollReveal delay={200}>
+              <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
+                <img
+                  src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=800&auto=format&fit=crop"
+                  alt="Koncept India printing and packaging"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/20 to-transparent" />
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Counter */}
+      <StatsSection />
+
+      {/* Rotating CTA */}
+      <RotatingCTA />
+
+      {/* Industry Tabs */}
+      <IndustryTabs />
+
+      {/* Portfolio Grid */}
+      <PortfolioGrid />
+
       {/* Client Strip */}
-      <section>
+      <section className="py-12 bg-gray-50">
         <ScrollReveal>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
             <h2 className="text-center text-xl font-semibold text-gray-500 uppercase tracking-wide">
               Trusted By Leading Brands
             </h2>
@@ -61,33 +211,50 @@ export default function HomePage() {
       {/* Testimonials */}
       <Testimonials testimonials={home.testimonials || []} />
 
-      {/* CTA — image background */}
-      <section className="relative py-20 text-white overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: content.images?.ctaBackground
-              ? `url('${content.images.ctaBackground}')`
-              : "url('https://images.unsplash.com/photo-1603513492128-ba7bc9b3e143?q=80&w=1600&auto=format&fit=crop')",
-          }}
-        />
-        <div className="absolute inset-0 bg-gray-900/75" />
-
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <ScrollReveal>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              Ready to elevate your brand?
-            </h2>
-            <p className="text-gray-300 mb-8 text-lg">
-              Let us bring your vision to life with premium printing, packaging, and gifting solutions.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center px-8 py-3 bg-amber-700 hover:bg-amber-800 text-white font-semibold rounded-lg transition-colors"
-            >
-              Contact Us Today
-            </Link>
-          </ScrollReveal>
+      {/* Cross-Sell CTA — Printing + Packaging */}
+      <section className="relative py-20 text-white overflow-hidden bg-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <ScrollReveal>
+              <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
+                <img
+                  src="https://images.unsplash.com/photo-1603513492128-ba7bc9b3e143?q=80&w=800&auto=format&fit=crop"
+                  alt="Printing services"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </ScrollReveal>
+            <ScrollReveal delay={200}>
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+                Need Printing Services Along With Packaging?
+              </h2>
+              <p className="text-gray-400 leading-relaxed mb-8 text-lg">
+                From brochures and catalogues to corporate stationery and
+                wedding invitations — our in-house printing facility delivers
+                exceptional quality with fast turnaround. Combine with our
+                packaging solutions for a complete brand experience.
+              </p>
+              <Link
+                href="/printing"
+                className="inline-flex items-center px-8 py-3.5 bg-amber-700 hover:bg-amber-800 text-white font-semibold rounded-lg transition-colors shadow-lg shadow-amber-900/30"
+              >
+                Explore Printing Services
+                <svg
+                  className="w-4 h-4 ml-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
+              </Link>
+            </ScrollReveal>
+          </div>
         </div>
       </section>
     </>
