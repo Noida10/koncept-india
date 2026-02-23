@@ -62,6 +62,8 @@ export type SiteContent = {
       image: string;
     };
     clientStripTitle: string;
+    expertiseTitle: string;
+    expertiseSubtitle: string;
   };
   about: {
     bannerImage: string;

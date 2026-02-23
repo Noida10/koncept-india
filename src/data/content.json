@@ -222,7 +222,9 @@
       "buttonHref": "/printing",
       "image": "https://images.unsplash.com/photo-1603513492128-ba7bc9b3e143?q=80&w=800&auto=format&fit=crop"
     },
-    "clientStripTitle": "Trusted By Leading Brands"
+    "clientStripTitle": "Trusted By Leading Brands",
+    "expertiseTitle": "Our Expertise",
+    "expertiseSubtitle": "Comprehensive printing, packaging, gifting, and leather solutions tailored to elevate your brand."
   },
   "about": {
     "bannerImage": "https://images.unsplash.com/photo-1603513492128-ba7bc9b3e143?q=80&w=1600&auto=format&fit=crop",

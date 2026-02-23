@@ -121,12 +121,11 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              Our Expertise
+              {home.expertiseTitle || "Our Expertise"}
             </h2>
             <div className="w-20 h-1 bg-amber-700 mx-auto mb-4"></div>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Comprehensive printing, packaging, gifting, and leather solutions
-              tailored to elevate your brand.
+              {home.expertiseSubtitle || "Comprehensive printing, packaging, gifting, and leather solutions tailored to elevate your brand."}
             </p>
           </ScrollReveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

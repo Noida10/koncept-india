@@ -442,8 +442,25 @@ function HomeEditor({ content, setContent }: EditorProps) {
         </button>
       </div>
 
+      {/* Our Expertise Section */}
+      <div className="border-t border-gray-200 pt-6">
+        <h4 className="text-sm font-bold text-gray-900 mb-4 uppercase tracking-wide">Our Expertise Section</h4>
+        <div className="space-y-4">
+          <InputField
+            label="Section Title"
+            value={home.expertiseTitle || "Our Expertise"}
+            onChange={(v) => update("expertiseTitle", v)}
+          />
+          <TextAreaField
+            label="Section Subtitle"
+            value={home.expertiseSubtitle || ""}
+            onChange={(v) => update("expertiseSubtitle", v)}
+          />
+        </div>
+      </div>
+
       <div>
-        <h4 className="text-sm font-medium text-gray-700 mb-3">Quick Links</h4>
+        <h4 className="text-sm font-medium text-gray-700 mb-3">Expertise Cards (Quick Links)</h4>
         {home.quickLinks.map((link, i) => (
           <div key={i} className="border border-gray-200 rounded-lg p-4 mb-3">
             <div className="grid grid-cols-2 gap-3">
