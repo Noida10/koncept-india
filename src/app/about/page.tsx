@@ -103,10 +103,7 @@ export default function AboutPage() {
               <div className="w-16 h-1 bg-amber-700 mb-6"></div>
               <div className="space-y-4">
                 {about.visionMission.map((item, i) => (
-                  <div key={i} className="flex items-start gap-4">
-                    <div className="w-2 h-2 bg-amber-700 rounded-full mt-2.5 shrink-0"></div>
-                    <p className="text-gray-600 leading-relaxed text-lg">{item}</p>
-                  </div>
+                  <p key={i} className="text-gray-600 leading-relaxed text-lg">{item}</p>
                 ))}
               </div>
             </ScrollReveal>

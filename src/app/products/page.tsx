@@ -42,9 +42,8 @@ export default function ProductsPage() {
                 {category.items.map((item) => (
                   <div
                     key={item}
-                    className="group flex items-center gap-3 p-4 bg-gray-50 rounded-lg hover:bg-amber-50 hover:shadow-sm transition-all border border-transparent hover:border-amber-200"
+                    className="group flex items-center p-4 bg-gray-50 rounded-lg hover:bg-amber-50 hover:shadow-sm transition-all border border-transparent hover:border-amber-200"
                   >
-                    <div className="w-2 h-2 bg-amber-700 rounded-full shrink-0 group-hover:scale-125 transition-transform"></div>
                     <span className="text-gray-700 font-medium">{item}</span>
                   </div>
                 ))}

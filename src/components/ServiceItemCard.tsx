@@ -15,7 +15,7 @@ export default function ServiceItemCard({
   return (
     <div className="group bg-white rounded-lg overflow-hidden border border-gray-200 hover:border-amber-200 hover:shadow-md transition-all">
       {/* Image area */}
-      <div className="relative w-full h-[120px] overflow-hidden">
+      <div className="relative w-full aspect-[4/3] overflow-hidden">
         {image && !imgError ? (
           <img
             src={image}
@@ -43,8 +43,7 @@ export default function ServiceItemCard({
       </div>
 
       {/* Name */}
-      <div className="p-3 flex items-center gap-2">
-        <div className="w-1.5 h-1.5 bg-amber-700 rounded-full shrink-0 group-hover:scale-125 transition-transform"></div>
+      <div className="p-3">
         <span className="text-gray-700 font-medium text-sm">{name}</span>
       </div>
     </div>
