@@ -137,7 +137,7 @@ export default function HomePage() {
                 >
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <img
-                      src={home.heroProducts[i]?.image || ""}
+                      src={link.image || home.heroProducts[i]?.image || ""}
                       alt={link.title}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />

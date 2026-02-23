@@ -59,25 +59,29 @@
         "title": "Printing Services",
         "description": "Multi-colour Offset, Digital, Screen, UV & Leaf Printing with precision and excellence.",
         "icon": "print",
-        "href": "/printing"
+        "href": "/printing",
+        "image": "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?q=80&w=800&auto=format&fit=crop"
       },
       {
         "title": "Corporate Gifting",
         "description": "Curated premium gifts for corporate events, branding, and client relationships.",
         "icon": "gift",
-        "href": "/packaging#corporate-gifting"
+        "href": "/packaging#corporate-gifting",
+        "image": "https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=800&auto=format&fit=crop"
       },
       {
         "title": "Leather Products",
         "description": "Handcrafted leather bags, wallets, and accessories for the discerning professional.",
         "icon": "briefcase",
-        "href": "/packaging#leather-products"
+        "href": "/packaging#leather-products",
+        "image": "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?q=80&w=800&auto=format&fit=crop"
       },
       {
         "title": "Custom Packaging",
         "description": "Luxury rigid boxes, eco-friendly solutions, and bespoke packaging designs.",
         "icon": "package",
-        "href": "/packaging"
+        "href": "/packaging",
+        "image": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=800&auto=format&fit=crop"
       }
     ],
     "clientStrip": [
