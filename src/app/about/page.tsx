@@ -3,7 +3,6 @@ import { getContent } from "@/lib/content";
 import ScrollReveal from "@/components/ScrollReveal";
 import ImageWithFallback from "@/components/ImageWithFallback";
 import PageBackground from "@/components/PageBackground";
-import AboutStats from "./AboutStats";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -52,7 +51,6 @@ export default function AboutPage() {
                   {p}
                 </p>
               ))}
-              <AboutStats />
             </ScrollReveal>
             <ScrollReveal delay={200}>
               <ImageWithFallback
@@ -82,12 +80,7 @@ export default function AboutPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Machinery</h2>
               <div className="w-16 h-1 bg-amber-700 mb-6"></div>
               {about.capabilities.map((cap, i) => (
-                <div key={i} className="flex items-start gap-4 mb-4">
-                  <div className="w-8 h-8 bg-amber-700 text-white rounded-lg flex items-center justify-center shrink-0 text-sm font-bold mt-0.5">
-                    {i + 1}
-                  </div>
-                  <p className="text-gray-600 leading-relaxed text-lg">{cap}</p>
-                </div>
+                <p key={i} className="text-gray-600 leading-relaxed mb-4 text-lg">{cap}</p>
               ))}
             </ScrollReveal>
           </div>
