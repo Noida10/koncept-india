@@ -28,7 +28,7 @@ export default function MalkinPopup() {
     const timer = setTimeout(() => {
       setStage(0);
       setVisible(true);
-    }, 10000);
+    }, 30000);
     return () => clearTimeout(timer);
   }, []);
 
