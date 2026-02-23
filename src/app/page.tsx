@@ -118,26 +118,9 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <ScrollReveal>
-              <div className="flex items-start gap-4 mb-6">
-                <div className="shrink-0 w-12 h-12 rounded-lg bg-amber-700 flex items-center justify-center text-white">
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                    />
-                  </svg>
-                </div>
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
-                  Premium Printing & Packaging for Leading Brands
-                </h2>
-              </div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-6">
+                Premium Printing & Packaging for Leading Brands
+              </h2>
               <p className="text-gray-600 leading-relaxed mb-6 text-lg">
                 With over two decades of experience, Koncept India Enterprises
                 delivers end-to-end printing, packaging, corporate gifting, and
