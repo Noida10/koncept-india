@@ -242,22 +242,6 @@ function HomeEditor({ content, setContent }: EditorProps) {
       <TextAreaField label="Hero Subtitle" value={home.heroSubtitle} onChange={(v) => update("heroSubtitle", v)} />
       <InputField label="CTA Button Text" value={home.heroCta} onChange={(v) => update("heroCta", v)} />
 
-      {/* Welcome Section */}
-      <div className="border border-gray-200 rounded-lg p-4 space-y-4">
-        <h4 className="text-sm font-medium text-gray-700">Welcome Section (above Our Expertise)</h4>
-        <InputField
-          label="Heading"
-          value={home.welcome?.heading || ""}
-          onChange={(v) => update("welcome", { ...home.welcome, heading: v })}
-        />
-        <TextAreaField
-          label="Content"
-          value={home.welcome?.content || ""}
-          rows={4}
-          onChange={(v) => update("welcome", { ...home.welcome, content: v })}
-        />
-      </div>
-
       {/* Hero Background & Text Color */}
       <div className="border border-gray-200 rounded-lg p-4 space-y-4">
         <h4 className="text-sm font-medium text-gray-700">Hero Background & Text Color</h4>
@@ -583,11 +567,6 @@ function AboutEditor({ content, setContent }: EditorProps) {
         items={about.capabilities}
         onChange={(v) => setContent({ ...content, about: { ...about, capabilities: v } })}
       />
-      <InputField
-        label="Founder Name (displayed bold on About page)"
-        value={about.founderName || ""}
-        onChange={(v) => setContent({ ...content, about: { ...about, founderName: v } })}
-      />
       <ListEditor
         label="Vision & Mission Points"
         items={about.visionMission}
@@ -622,18 +601,7 @@ function ProductsEditor({ content, setContent }: EditorProps) {
 
       {products.categories.map((cat, catIdx) => (
         <div key={cat.id} className="border border-gray-200 rounded-lg p-4">
-          <div className="flex justify-between items-center mb-3">
-            <h4 className="font-semibold text-gray-900">{cat.name}</h4>
-            <button
-              onClick={() => {
-                const updated = products.categories.filter((_, idx) => idx !== catIdx);
-                setContent({ ...content, products: { ...products, categories: updated } });
-              }}
-              className="text-xs text-red-500 hover:text-red-700 font-medium"
-            >
-              Remove Category
-            </button>
-          </div>
+          <h4 className="font-semibold text-gray-900 mb-3">{cat.name}</h4>
           <InputField label="Category Name" value={cat.name} onChange={(v) => updateCategory(catIdx, "name", v)} />
           <div className="mt-3">
             <TextAreaField label="Description" value={cat.description} onChange={(v) => updateCategory(catIdx, "description", v)} />
@@ -690,18 +658,7 @@ function GalleryEditor({ content, setContent }: EditorProps) {
 
       {gallery.categories.map((cat, catIdx) => (
         <div key={cat.id} className="border border-gray-200 rounded-lg p-4">
-          <div className="flex justify-between items-center mb-3">
-            <h4 className="font-semibold text-gray-900">{cat.name}</h4>
-            <button
-              onClick={() => {
-                const updated = gallery.categories.filter((_, idx) => idx !== catIdx);
-                setContent({ ...content, gallery: { ...gallery, categories: updated } });
-              }}
-              className="text-xs text-red-500 hover:text-red-700 font-medium"
-            >
-              Remove Category
-            </button>
-          </div>
+          <h4 className="font-semibold text-gray-900 mb-3">{cat.name}</h4>
           <InputField label="Category Name" value={cat.name} onChange={(v) => updateCategory(catIdx, "name", v)} />
           <div className="mt-3">
             <TextAreaField label="Description" value={cat.description} onChange={(v) => updateCategory(catIdx, "description", v)} />
@@ -762,18 +719,6 @@ function ClientsEditor({ content, setContent }: EditorProps) {
 
       {clients.categories.map((cat, catIdx) => (
         <div key={catIdx} className="border border-gray-200 rounded-lg p-4">
-          <div className="flex justify-between items-center mb-3">
-            <h4 className="font-semibold text-gray-900">{cat.name}</h4>
-            <button
-              onClick={() => {
-                const updated = clients.categories.filter((_, idx) => idx !== catIdx);
-                setContent({ ...content, clients: { ...clients, categories: updated } });
-              }}
-              className="text-xs text-red-500 hover:text-red-700 font-medium"
-            >
-              Remove Category
-            </button>
-          </div>
           <InputField
             label="Category Name"
             value={cat.name}
@@ -903,18 +848,7 @@ function PrintingEditor({ content, setContent }: EditorProps) {
 
       {printing.categories.map((cat, catIdx) => (
         <div key={cat.id} className="border border-gray-200 rounded-lg p-4">
-          <div className="flex justify-between items-center mb-3">
-            <h4 className="font-semibold text-gray-900">{cat.name}</h4>
-            <button
-              onClick={() => {
-                const updated = printing.categories.filter((_, idx) => idx !== catIdx);
-                setContent({ ...content, printing: { ...printing, categories: updated } });
-              }}
-              className="text-xs text-red-500 hover:text-red-700 font-medium"
-            >
-              Remove Category
-            </button>
-          </div>
+          <h4 className="font-semibold text-gray-900 mb-3">{cat.name}</h4>
           <InputField label="Category Name" value={cat.name} onChange={(v) => updateCategory(catIdx, "name", v)} />
           <div className="mt-3">
             <TextAreaField label="Description" value={cat.description} onChange={(v) => updateCategory(catIdx, "description", v)} />
@@ -975,18 +909,7 @@ function PackagingEditor({ content, setContent }: EditorProps) {
 
       {packaging.categories.map((cat, catIdx) => (
         <div key={cat.id} className="border border-gray-200 rounded-lg p-4">
-          <div className="flex justify-between items-center mb-3">
-            <h4 className="font-semibold text-gray-900">{cat.name}</h4>
-            <button
-              onClick={() => {
-                const updated = packaging.categories.filter((_, idx) => idx !== catIdx);
-                setContent({ ...content, packaging: { ...packaging, categories: updated } });
-              }}
-              className="text-xs text-red-500 hover:text-red-700 font-medium"
-            >
-              Remove Category
-            </button>
-          </div>
+          <h4 className="font-semibold text-gray-900 mb-3">{cat.name}</h4>
           <InputField label="Category Name" value={cat.name} onChange={(v) => updateCategory(catIdx, "name", v)} />
           <div className="mt-3">
             <TextAreaField label="Description" value={cat.description} onChange={(v) => updateCategory(catIdx, "description", v)} />
