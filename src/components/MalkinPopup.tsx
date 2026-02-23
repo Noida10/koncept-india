@@ -25,6 +25,7 @@ export default function MalkinPopup() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    if (sessionStorage.getItem("malkin_done")) return;
     const timer = setTimeout(() => {
       setStage(0);
       setVisible(true);
@@ -40,6 +41,7 @@ export default function MalkinPopup() {
         setVisible(true);
       } else {
         setStage(-1);
+        sessionStorage.setItem("malkin_done", "1");
       }
     }, 400);
   };
