@@ -22,6 +22,46 @@ export type SiteContent = {
     quickLinks: { title: string; description: string; icon: string; href: string }[];
     clientStrip: { name: string; logo: string }[];
     testimonials: { quote: string; author: string; company: string }[];
+    premiumIntro: {
+      title: string;
+      paragraphs: string[];
+      linkText: string;
+      linkHref: string;
+      image: string;
+    };
+    stats: { value: number; suffix: string; label: string }[];
+    rotatingCTA: {
+      words: string[];
+      titlePrefix: string;
+      subtitle: string;
+      buttonText: string;
+      buttonHref: string;
+    };
+    industries: {
+      sectionTitle: string;
+      sectionSubtitle: string;
+      items: {
+        id: string;
+        label: string;
+        title: string;
+        description: string;
+        features: string[];
+        image: string;
+      }[];
+    };
+    portfolio: {
+      title: string;
+      subtitle: string;
+      images: { src: string; alt: string }[];
+    };
+    crossSellCTA: {
+      title: string;
+      description: string;
+      buttonText: string;
+      buttonHref: string;
+      image: string;
+    };
+    clientStripTitle: string;
   };
   about: {
     bannerImage: string;

@@ -12,9 +12,55 @@ export default function HomePage() {
   const content = getContent();
   const { home } = content;
 
+  const premiumIntro = home.premiumIntro || {
+    title: "Premium Printing & Packaging for Leading Brands",
+    paragraphs: [
+      "With over two decades of experience, Koncept India Enterprises delivers end-to-end printing, packaging, corporate gifting, and leather product solutions. Our in-house facility features state-of-the-art technology for multi-colour offset, digital, screen, UV, and leaf printing.",
+      "Trusted by hospitality giants like JW Marriott, Hyatt, and Pullman, and corporate leaders like BMW and DLF — we combine craftsmanship with innovation to bring your brand vision to life.",
+    ],
+    linkText: "Learn More About Us",
+    linkHref: "/about",
+    image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=800&auto=format&fit=crop",
+  };
+
+  const crossSell = home.crossSellCTA || {
+    title: "Need Printing Services Along With Packaging?",
+    description: "From brochures and catalogues to corporate stationery and wedding invitations — our in-house printing facility delivers exceptional quality with fast turnaround. Combine with our packaging solutions for a complete brand experience.",
+    buttonText: "Explore Printing Services",
+    buttonHref: "/printing",
+    image: "https://images.unsplash.com/photo-1603513492128-ba7bc9b3e143?q=80&w=800&auto=format&fit=crop",
+  };
+
+  const stats = home.stats || [
+    { value: 20, suffix: "+", label: "Years Experience" },
+    { value: 500, suffix: "+", label: "Projects Delivered" },
+    { value: 50, suffix: "+", label: "Happy Clients" },
+    { value: 4, suffix: "", label: "Service Verticals" },
+  ];
+
+  const rotatingCTA = home.rotatingCTA || {
+    words: ["Quality", "Precision", "Innovation", "Excellence"],
+    titlePrefix: "Elevate Your Brand with",
+    subtitle: "Partner with us for premium printing, packaging, and gifting solutions that set your brand apart.",
+    buttonText: "Start Your Project",
+    buttonHref: "/contact",
+  };
+
+  const industries = home.industries || {
+    sectionTitle: "Solutions Across Industries",
+    sectionSubtitle: "Tailored printing and packaging for every sector — crafted with precision to meet unique industry demands.",
+    items: [],
+  };
+
+  const portfolio = home.portfolio || {
+    title: "Our Work",
+    subtitle: "A showcase of premium printing, packaging, and gifting solutions crafted for leading brands.",
+    images: [],
+  };
+
   return (
     <>
-      {/* Hero Section — full viewport with dark overlay like Vintage Offset */}
+      {/* Hero Section */}
       <section className="relative overflow-hidden text-white min-h-[50vh] flex items-center">
         <div className="absolute inset-0">
           <img
@@ -70,7 +116,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Our Expertise — 4 image cards like Vintage Offset "Packaging Capabilities" */}
+      {/* Our Expertise — 4 image cards */}
       <section className="py-16 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="text-center mb-12">
@@ -113,31 +159,24 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Premium Solutions Intro — left-aligned with icon */}
+      {/* Premium Solutions Intro */}
       <section className="py-16 sm:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <ScrollReveal>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-6">
-                Premium Printing & Packaging for Leading Brands
+                {premiumIntro.title}
               </h2>
-              <p className="text-gray-600 leading-relaxed mb-6 text-lg">
-                With over two decades of experience, Koncept India Enterprises
-                delivers end-to-end printing, packaging, corporate gifting, and
-                leather product solutions. Our in-house facility features
-                state-of-the-art technology for multi-colour offset, digital,
-                screen, UV, and leaf printing.
-              </p>
-              <p className="text-gray-600 leading-relaxed mb-8">
-                Trusted by hospitality giants like JW Marriott, Hyatt, and
-                Pullman, and corporate leaders like BMW and DLF — we combine
-                craftsmanship with innovation to bring your brand vision to life.
-              </p>
+              {premiumIntro.paragraphs.map((p, i) => (
+                <p key={i} className={`text-gray-600 leading-relaxed ${i === 0 ? "mb-6 text-lg" : "mb-8"}`}>
+                  {p}
+                </p>
+              ))}
               <Link
-                href="/about"
+                href={premiumIntro.linkHref}
                 className="inline-flex items-center text-amber-700 hover:text-amber-800 font-semibold transition-colors"
               >
-                Learn More About Us
+                {premiumIntro.linkText}
                 <svg
                   className="w-4 h-4 ml-2"
                   fill="none"
@@ -156,7 +195,7 @@ export default function HomePage() {
             <ScrollReveal delay={200}>
               <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
                 <img
-                  src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=800&auto=format&fit=crop"
+                  src={premiumIntro.image}
                   alt="Koncept India printing and packaging"
                   className="w-full h-full object-cover"
                 />
@@ -168,23 +207,37 @@ export default function HomePage() {
       </section>
 
       {/* Stats Counter */}
-      <StatsSection />
+      <StatsSection stats={stats} />
 
       {/* Rotating CTA */}
-      <RotatingCTA />
+      <RotatingCTA
+        words={rotatingCTA.words}
+        titlePrefix={rotatingCTA.titlePrefix}
+        subtitle={rotatingCTA.subtitle}
+        buttonText={rotatingCTA.buttonText}
+        buttonHref={rotatingCTA.buttonHref}
+      />
 
       {/* Industry Tabs */}
-      <IndustryTabs />
+      <IndustryTabs
+        sectionTitle={industries.sectionTitle}
+        sectionSubtitle={industries.sectionSubtitle}
+        items={industries.items}
+      />
 
       {/* Portfolio Grid */}
-      <PortfolioGrid />
+      <PortfolioGrid
+        title={portfolio.title}
+        subtitle={portfolio.subtitle}
+        images={portfolio.images}
+      />
 
       {/* Client Strip */}
       <section className="py-12 bg-gray-50">
         <ScrollReveal>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
             <h2 className="text-center text-xl font-semibold text-gray-500 uppercase tracking-wide">
-              Trusted By Leading Brands
+              {home.clientStripTitle || "Trusted By Leading Brands"}
             </h2>
           </div>
         </ScrollReveal>
@@ -194,14 +247,14 @@ export default function HomePage() {
       {/* Testimonials */}
       <Testimonials testimonials={home.testimonials || []} />
 
-      {/* Cross-Sell CTA — Printing + Packaging */}
+      {/* Cross-Sell CTA */}
       <section className="relative py-20 text-white overflow-hidden bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <ScrollReveal>
               <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
                 <img
-                  src="https://images.unsplash.com/photo-1603513492128-ba7bc9b3e143?q=80&w=800&auto=format&fit=crop"
+                  src={crossSell.image}
                   alt="Printing services"
                   className="w-full h-full object-cover"
                 />
@@ -209,19 +262,16 @@ export default function HomePage() {
             </ScrollReveal>
             <ScrollReveal delay={200}>
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-                Need Printing Services Along With Packaging?
+                {crossSell.title}
               </h2>
               <p className="text-gray-400 leading-relaxed mb-8 text-lg">
-                From brochures and catalogues to corporate stationery and
-                wedding invitations — our in-house printing facility delivers
-                exceptional quality with fast turnaround. Combine with our
-                packaging solutions for a complete brand experience.
+                {crossSell.description}
               </p>
               <Link
-                href="/printing"
+                href={crossSell.buttonHref}
                 className="inline-flex items-center px-8 py-3.5 bg-amber-700 hover:bg-amber-800 text-white font-semibold rounded-lg transition-colors shadow-lg shadow-amber-900/30"
               >
-                Explore Printing Services
+                {crossSell.buttonText}
                 <svg
                   className="w-4 h-4 ml-2"
                   fill="none"

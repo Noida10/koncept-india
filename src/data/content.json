@@ -138,7 +138,91 @@
         "author": "Operations Director",
         "company": "Pullman & Novotel"
       }
-    ]
+    ],
+    "premiumIntro": {
+      "title": "Premium Printing & Packaging for Leading Brands",
+      "paragraphs": [
+        "With over two decades of experience, Koncept India Enterprises delivers end-to-end printing, packaging, corporate gifting, and leather product solutions. Our in-house facility features state-of-the-art technology for multi-colour offset, digital, screen, UV, and leaf printing.",
+        "Trusted by hospitality giants like JW Marriott, Hyatt, and Pullman, and corporate leaders like BMW and DLF — we combine craftsmanship with innovation to bring your brand vision to life."
+      ],
+      "linkText": "Learn More About Us",
+      "linkHref": "/about",
+      "image": "https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=800&auto=format&fit=crop"
+    },
+    "stats": [
+      { "value": 20, "suffix": "+", "label": "Years Experience" },
+      { "value": 500, "suffix": "+", "label": "Projects Delivered" },
+      { "value": 50, "suffix": "+", "label": "Happy Clients" },
+      { "value": 4, "suffix": "", "label": "Service Verticals" }
+    ],
+    "rotatingCTA": {
+      "words": ["Quality", "Precision", "Innovation", "Excellence"],
+      "titlePrefix": "Elevate Your Brand with",
+      "subtitle": "Partner with us for premium printing, packaging, and gifting solutions that set your brand apart.",
+      "buttonText": "Start Your Project",
+      "buttonHref": "/contact"
+    },
+    "industries": {
+      "sectionTitle": "Solutions Across Industries",
+      "sectionSubtitle": "Tailored printing and packaging for every sector — crafted with precision to meet unique industry demands.",
+      "items": [
+        {
+          "id": "hospitality",
+          "label": "Hospitality",
+          "title": "Hospitality & Hotels",
+          "description": "From luxury rigid boxes for amenity kits to eco-friendly room supplies, we craft bespoke packaging and printing solutions for the world's finest hospitality brands.",
+          "features": ["Custom amenity kit packaging", "Branded collaterals & stationery", "Eco-friendly hotel supplies", "Menu cards & in-room printing"],
+          "image": "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?q=80&w=800&auto=format&fit=crop"
+        },
+        {
+          "id": "corporate",
+          "label": "Corporate & Luxury",
+          "title": "Corporate & Luxury Brands",
+          "description": "Premium corporate gifting sets, branded packaging, and high-quality print materials designed to strengthen brand identity and client relationships.",
+          "features": ["Corporate gift sets & hampers", "Branded packaging boxes", "Annual reports & brochures", "Event collaterals & invites"],
+          "image": "https://images.unsplash.com/photo-1549465220-1a8b9238f581?q=80&w=800&auto=format&fit=crop"
+        },
+        {
+          "id": "automotive",
+          "label": "Automotive & FMCG",
+          "title": "Automotive & FMCG",
+          "description": "Durable, premium packaging and branded merchandise for automotive giants and FMCG companies — from product boxes to promotional kits.",
+          "features": ["Product launch kits", "Branded merchandise packaging", "Promotional materials", "Custom carry bags & boxes"],
+          "image": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?q=80&w=800&auto=format&fit=crop"
+        },
+        {
+          "id": "events",
+          "label": "Events & Weddings",
+          "title": "Events & Weddings",
+          "description": "Exquisite invitations, curated gift boxes, and themed packaging for weddings, celebrations, and high-profile events that leave lasting impressions.",
+          "features": ["Wedding invitation suites", "Celebration gift boxes", "Themed event packaging", "Custom greeting cards"],
+          "image": "https://images.unsplash.com/photo-1607344645866-009c320b63e0?q=80&w=800&auto=format&fit=crop"
+        }
+      ]
+    },
+    "portfolio": {
+      "title": "Our Work",
+      "subtitle": "A showcase of premium printing, packaging, and gifting solutions crafted for leading brands.",
+      "images": [
+        { "src": "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?q=80&w=600&auto=format&fit=crop", "alt": "Luxury rigid box" },
+        { "src": "https://images.unsplash.com/photo-1607344645866-009c320b63e0?q=80&w=600&auto=format&fit=crop", "alt": "Gift packaging" },
+        { "src": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?q=80&w=600&auto=format&fit=crop", "alt": "Premium packaging" },
+        { "src": "https://images.unsplash.com/photo-1549465220-1a8b9238f581?q=80&w=600&auto=format&fit=crop", "alt": "Custom gift set" },
+        { "src": "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?q=80&w=600&auto=format&fit=crop", "alt": "Hotel amenity kit" },
+        { "src": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=600&auto=format&fit=crop", "alt": "Custom bags" },
+        { "src": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=600&auto=format&fit=crop", "alt": "Leather products" },
+        { "src": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=600&auto=format&fit=crop", "alt": "Corporate stationery" },
+        { "src": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=600&auto=format&fit=crop", "alt": "Eco-friendly products" }
+      ]
+    },
+    "crossSellCTA": {
+      "title": "Need Printing Services Along With Packaging?",
+      "description": "From brochures and catalogues to corporate stationery and wedding invitations — our in-house printing facility delivers exceptional quality with fast turnaround. Combine with our packaging solutions for a complete brand experience.",
+      "buttonText": "Explore Printing Services",
+      "buttonHref": "/printing",
+      "image": "https://images.unsplash.com/photo-1603513492128-ba7bc9b3e143?q=80&w=800&auto=format&fit=crop"
+    },
+    "clientStripTitle": "Trusted By Leading Brands"
   },
   "about": {
     "bannerImage": "https://images.unsplash.com/photo-1603513492128-ba7bc9b3e143?q=80&w=1600&auto=format&fit=crop",

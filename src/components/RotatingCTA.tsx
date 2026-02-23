@@ -2,9 +2,15 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
-const words = ["Quality", "Precision", "Innovation", "Excellence"];
+type RotatingCTAProps = {
+  words: string[];
+  titlePrefix: string;
+  subtitle: string;
+  buttonText: string;
+  buttonHref: string;
+};
 
-export default function RotatingCTA() {
+export default function RotatingCTA({ words, titlePrefix, subtitle, buttonText, buttonHref }: RotatingCTAProps) {
   const [index, setIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
@@ -17,13 +23,13 @@ export default function RotatingCTA() {
       }, 400);
     }, 3000);
     return () => clearInterval(timer);
-  }, []);
+  }, [words.length]);
 
   return (
     <section className="py-16 sm:py-20 bg-[#1B3A88] text-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-          Elevate Your Brand with{" "}
+          {titlePrefix}{" "}
           <span
             className={`inline-block text-amber-400 transition-all duration-400 ${
               animating
@@ -35,14 +41,13 @@ export default function RotatingCTA() {
           </span>
         </h2>
         <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-          Partner with us for premium printing, packaging, and gifting solutions
-          that set your brand apart.
+          {subtitle}
         </p>
         <Link
-          href="/contact"
+          href={buttonHref}
           className="inline-flex items-center px-8 py-3.5 bg-amber-700 hover:bg-amber-800 text-white font-semibold rounded-lg transition-colors shadow-lg shadow-amber-900/30"
         >
-          Start Your Project
+          {buttonText}
           <svg
             className="w-4 h-4 ml-2"
             fill="none"

@@ -543,6 +543,358 @@ function HomeEditor({ content, setContent }: EditorProps) {
           + Add Testimonial
         </button>
       </div>
+
+      {/* Premium Intro Section */}
+      <div className="border-t border-gray-200 pt-6">
+        <h4 className="text-sm font-bold text-gray-900 mb-4 uppercase tracking-wide">Premium Intro Section</h4>
+        <div className="space-y-4">
+          <InputField
+            label="Section Title"
+            value={(home.premiumIntro || { title: "" }).title}
+            onChange={(v) => update("premiumIntro", { ...(home.premiumIntro || { title: "", paragraphs: [], linkText: "", linkHref: "", image: "" }), title: v })}
+          />
+          <ListEditor
+            label="Paragraphs"
+            items={(home.premiumIntro || { paragraphs: [] }).paragraphs}
+            onChange={(v) => update("premiumIntro", { ...(home.premiumIntro || { title: "", paragraphs: [], linkText: "", linkHref: "", image: "" }), paragraphs: v })}
+          />
+          <div className="grid grid-cols-2 gap-3">
+            <InputField
+              label="Link Text"
+              value={(home.premiumIntro || { linkText: "" }).linkText}
+              onChange={(v) => update("premiumIntro", { ...(home.premiumIntro || { title: "", paragraphs: [], linkText: "", linkHref: "", image: "" }), linkText: v })}
+            />
+            <InputField
+              label="Link URL"
+              value={(home.premiumIntro || { linkHref: "" }).linkHref}
+              onChange={(v) => update("premiumIntro", { ...(home.premiumIntro || { title: "", paragraphs: [], linkText: "", linkHref: "", image: "" }), linkHref: v })}
+            />
+          </div>
+          <InputField
+            label="Image URL"
+            value={(home.premiumIntro || { image: "" }).image}
+            onChange={(v) => update("premiumIntro", { ...(home.premiumIntro || { title: "", paragraphs: [], linkText: "", linkHref: "", image: "" }), image: v })}
+          />
+          {(home.premiumIntro || { image: "" }).image && (
+            <img src={(home.premiumIntro || { image: "" }).image} alt="Preview" className="w-full h-24 object-cover rounded-lg" />
+          )}
+        </div>
+      </div>
+
+      {/* Stats Section */}
+      <div className="border-t border-gray-200 pt-6">
+        <h4 className="text-sm font-bold text-gray-900 mb-4 uppercase tracking-wide">Stats Counter Section</h4>
+        {(home.stats || []).map((stat, i) => (
+          <div key={i} className="border border-gray-200 rounded-lg p-4 mb-3">
+            <div className="flex justify-between items-center mb-3">
+              <span className="text-xs font-semibold text-gray-400 uppercase">Stat {i + 1}</span>
+              <button
+                onClick={() => {
+                  const updated = (home.stats || []).filter((_, idx) => idx !== i);
+                  update("stats", updated);
+                }}
+                className="text-xs text-red-500 hover:text-red-700"
+              >
+                Remove
+              </button>
+            </div>
+            <div className="grid grid-cols-3 gap-3">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Value</label>
+                <input
+                  type="number"
+                  value={stat.value}
+                  onChange={(e) => {
+                    const updated = [...(home.stats || [])];
+                    updated[i] = { ...updated[i], value: parseInt(e.target.value) || 0 };
+                    update("stats", updated);
+                  }}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 outline-none focus:ring-2 focus:ring-amber-500"
+                />
+              </div>
+              <InputField
+                label="Suffix (e.g. +)"
+                value={stat.suffix}
+                onChange={(v) => {
+                  const updated = [...(home.stats || [])];
+                  updated[i] = { ...updated[i], suffix: v };
+                  update("stats", updated);
+                }}
+              />
+              <InputField
+                label="Label"
+                value={stat.label}
+                onChange={(v) => {
+                  const updated = [...(home.stats || [])];
+                  updated[i] = { ...updated[i], label: v };
+                  update("stats", updated);
+                }}
+              />
+            </div>
+          </div>
+        ))}
+        <button
+          onClick={() => update("stats", [...(home.stats || []), { value: 0, suffix: "+", label: "" }])}
+          className="text-sm text-amber-700 hover:text-amber-800 font-medium"
+        >
+          + Add Stat
+        </button>
+      </div>
+
+      {/* Rotating CTA Section */}
+      <div className="border-t border-gray-200 pt-6">
+        <h4 className="text-sm font-bold text-gray-900 mb-4 uppercase tracking-wide">Rotating CTA Section</h4>
+        <div className="space-y-4">
+          <InputField
+            label="Title Prefix (before rotating word)"
+            value={(home.rotatingCTA || { titlePrefix: "" }).titlePrefix}
+            onChange={(v) => update("rotatingCTA", { ...(home.rotatingCTA || { words: [], titlePrefix: "", subtitle: "", buttonText: "", buttonHref: "" }), titlePrefix: v })}
+          />
+          <ListEditor
+            label="Rotating Words"
+            items={(home.rotatingCTA || { words: [] }).words}
+            onChange={(v) => update("rotatingCTA", { ...(home.rotatingCTA || { words: [], titlePrefix: "", subtitle: "", buttonText: "", buttonHref: "" }), words: v })}
+          />
+          <TextAreaField
+            label="Subtitle"
+            value={(home.rotatingCTA || { subtitle: "" }).subtitle}
+            onChange={(v) => update("rotatingCTA", { ...(home.rotatingCTA || { words: [], titlePrefix: "", subtitle: "", buttonText: "", buttonHref: "" }), subtitle: v })}
+          />
+          <div className="grid grid-cols-2 gap-3">
+            <InputField
+              label="Button Text"
+              value={(home.rotatingCTA || { buttonText: "" }).buttonText}
+              onChange={(v) => update("rotatingCTA", { ...(home.rotatingCTA || { words: [], titlePrefix: "", subtitle: "", buttonText: "", buttonHref: "" }), buttonText: v })}
+            />
+            <InputField
+              label="Button Link"
+              value={(home.rotatingCTA || { buttonHref: "" }).buttonHref}
+              onChange={(v) => update("rotatingCTA", { ...(home.rotatingCTA || { words: [], titlePrefix: "", subtitle: "", buttonText: "", buttonHref: "" }), buttonHref: v })}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Industry Tabs Section */}
+      <div className="border-t border-gray-200 pt-6">
+        <h4 className="text-sm font-bold text-gray-900 mb-4 uppercase tracking-wide">Industries Section</h4>
+        <div className="space-y-4">
+          <InputField
+            label="Section Title"
+            value={(home.industries || { sectionTitle: "" }).sectionTitle}
+            onChange={(v) => update("industries", { ...(home.industries || { sectionTitle: "", sectionSubtitle: "", items: [] }), sectionTitle: v })}
+          />
+          <TextAreaField
+            label="Section Subtitle"
+            value={(home.industries || { sectionSubtitle: "" }).sectionSubtitle}
+            onChange={(v) => update("industries", { ...(home.industries || { sectionTitle: "", sectionSubtitle: "", items: [] }), sectionSubtitle: v })}
+          />
+
+          {((home.industries || { items: [] }).items || []).map((ind, i) => (
+            <div key={i} className="border border-gray-200 rounded-lg p-4">
+              <div className="flex justify-between items-center mb-3">
+                <span className="text-xs font-semibold text-gray-400 uppercase">Industry {i + 1}</span>
+                <button
+                  onClick={() => {
+                    const updated = { ...(home.industries || { sectionTitle: "", sectionSubtitle: "", items: [] }) };
+                    updated.items = updated.items.filter((_, idx) => idx !== i);
+                    update("industries", updated);
+                  }}
+                  className="text-xs text-red-500 hover:text-red-700"
+                >
+                  Remove
+                </button>
+              </div>
+              <div className="grid grid-cols-2 gap-3 mb-3">
+                <InputField
+                  label="Tab Label"
+                  value={ind.label}
+                  onChange={(v) => {
+                    const updated = { ...(home.industries || { sectionTitle: "", sectionSubtitle: "", items: [] }) };
+                    const items = [...updated.items];
+                    items[i] = { ...items[i], label: v };
+                    update("industries", { ...updated, items });
+                  }}
+                />
+                <InputField
+                  label="Full Title"
+                  value={ind.title}
+                  onChange={(v) => {
+                    const updated = { ...(home.industries || { sectionTitle: "", sectionSubtitle: "", items: [] }) };
+                    const items = [...updated.items];
+                    items[i] = { ...items[i], title: v };
+                    update("industries", { ...updated, items });
+                  }}
+                />
+              </div>
+              <div className="mb-3">
+                <TextAreaField
+                  label="Description"
+                  value={ind.description}
+                  onChange={(v) => {
+                    const updated = { ...(home.industries || { sectionTitle: "", sectionSubtitle: "", items: [] }) };
+                    const items = [...updated.items];
+                    items[i] = { ...items[i], description: v };
+                    update("industries", { ...updated, items });
+                  }}
+                />
+              </div>
+              <div className="mb-3">
+                <ListEditor
+                  label="Features"
+                  items={ind.features}
+                  onChange={(v) => {
+                    const updated = { ...(home.industries || { sectionTitle: "", sectionSubtitle: "", items: [] }) };
+                    const items = [...updated.items];
+                    items[i] = { ...items[i], features: v };
+                    update("industries", { ...updated, items });
+                  }}
+                />
+              </div>
+              <InputField
+                label="Image URL"
+                value={ind.image}
+                onChange={(v) => {
+                  const updated = { ...(home.industries || { sectionTitle: "", sectionSubtitle: "", items: [] }) };
+                  const items = [...updated.items];
+                  items[i] = { ...items[i], image: v };
+                  update("industries", { ...updated, items });
+                }}
+              />
+              {ind.image && (
+                <img src={ind.image} alt={ind.title} className="w-full h-20 object-cover rounded-lg mt-2" />
+              )}
+            </div>
+          ))}
+          <button
+            onClick={() => {
+              const updated = { ...(home.industries || { sectionTitle: "", sectionSubtitle: "", items: [] }) };
+              updated.items = [...updated.items, { id: `ind-${Date.now()}`, label: "", title: "", description: "", features: [], image: "" }];
+              update("industries", updated);
+            }}
+            className="text-sm text-amber-700 hover:text-amber-800 font-medium"
+          >
+            + Add Industry
+          </button>
+        </div>
+      </div>
+
+      {/* Portfolio Grid Section */}
+      <div className="border-t border-gray-200 pt-6">
+        <h4 className="text-sm font-bold text-gray-900 mb-4 uppercase tracking-wide">Portfolio / Our Work Section</h4>
+        <div className="space-y-4">
+          <InputField
+            label="Section Title"
+            value={(home.portfolio || { title: "" }).title}
+            onChange={(v) => update("portfolio", { ...(home.portfolio || { title: "", subtitle: "", images: [] }), title: v })}
+          />
+          <TextAreaField
+            label="Section Subtitle"
+            value={(home.portfolio || { subtitle: "" }).subtitle}
+            onChange={(v) => update("portfolio", { ...(home.portfolio || { title: "", subtitle: "", images: [] }), subtitle: v })}
+          />
+          {((home.portfolio || { images: [] }).images || []).map((img, i) => (
+            <div key={i} className="border border-gray-100 rounded-lg p-3 bg-gray-50">
+              <div className="flex gap-2 items-start">
+                <div className="flex-1 space-y-2">
+                  <input
+                    value={img.src}
+                    onChange={(e) => {
+                      const updated = { ...(home.portfolio || { title: "", subtitle: "", images: [] }) };
+                      const images = [...updated.images];
+                      images[i] = { ...images[i], src: e.target.value };
+                      update("portfolio", { ...updated, images });
+                    }}
+                    placeholder="Image URL"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 outline-none focus:ring-2 focus:ring-amber-500"
+                  />
+                  <input
+                    value={img.alt}
+                    onChange={(e) => {
+                      const updated = { ...(home.portfolio || { title: "", subtitle: "", images: [] }) };
+                      const images = [...updated.images];
+                      images[i] = { ...images[i], alt: e.target.value };
+                      update("portfolio", { ...updated, images });
+                    }}
+                    placeholder="Alt text"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm text-gray-900 outline-none focus:ring-2 focus:ring-amber-500"
+                  />
+                </div>
+                {img.src && (
+                  <img src={img.src} alt={img.alt} className="w-16 h-16 object-cover rounded-lg shrink-0" />
+                )}
+                <button
+                  onClick={() => {
+                    const updated = { ...(home.portfolio || { title: "", subtitle: "", images: [] }) };
+                    updated.images = updated.images.filter((_, idx) => idx !== i);
+                    update("portfolio", updated);
+                  }}
+                  className="px-2 py-2 text-red-600 hover:bg-red-50 rounded-lg text-sm shrink-0"
+                >
+                  Remove
+                </button>
+              </div>
+            </div>
+          ))}
+          <button
+            onClick={() => {
+              const updated = { ...(home.portfolio || { title: "", subtitle: "", images: [] }) };
+              updated.images = [...updated.images, { src: "", alt: "" }];
+              update("portfolio", updated);
+            }}
+            className="text-sm text-amber-700 hover:text-amber-800 font-medium"
+          >
+            + Add Portfolio Image
+          </button>
+        </div>
+      </div>
+
+      {/* Client Strip Title */}
+      <div className="border-t border-gray-200 pt-6">
+        <h4 className="text-sm font-bold text-gray-900 mb-4 uppercase tracking-wide">Client Strip</h4>
+        <InputField
+          label="Client Strip Section Title"
+          value={home.clientStripTitle || "Trusted By Leading Brands"}
+          onChange={(v) => update("clientStripTitle", v)}
+        />
+      </div>
+
+      {/* Cross-Sell CTA Section */}
+      <div className="border-t border-gray-200 pt-6">
+        <h4 className="text-sm font-bold text-gray-900 mb-4 uppercase tracking-wide">Cross-Sell CTA Section (Bottom)</h4>
+        <div className="space-y-4">
+          <InputField
+            label="Title"
+            value={(home.crossSellCTA || { title: "" }).title}
+            onChange={(v) => update("crossSellCTA", { ...(home.crossSellCTA || { title: "", description: "", buttonText: "", buttonHref: "", image: "" }), title: v })}
+          />
+          <TextAreaField
+            label="Description"
+            value={(home.crossSellCTA || { description: "" }).description}
+            onChange={(v) => update("crossSellCTA", { ...(home.crossSellCTA || { title: "", description: "", buttonText: "", buttonHref: "", image: "" }), description: v })}
+          />
+          <div className="grid grid-cols-2 gap-3">
+            <InputField
+              label="Button Text"
+              value={(home.crossSellCTA || { buttonText: "" }).buttonText}
+              onChange={(v) => update("crossSellCTA", { ...(home.crossSellCTA || { title: "", description: "", buttonText: "", buttonHref: "", image: "" }), buttonText: v })}
+            />
+            <InputField
+              label="Button Link"
+              value={(home.crossSellCTA || { buttonHref: "" }).buttonHref}
+              onChange={(v) => update("crossSellCTA", { ...(home.crossSellCTA || { title: "", description: "", buttonText: "", buttonHref: "", image: "" }), buttonHref: v })}
+            />
+          </div>
+          <InputField
+            label="Image URL"
+            value={(home.crossSellCTA || { image: "" }).image}
+            onChange={(v) => update("crossSellCTA", { ...(home.crossSellCTA || { title: "", description: "", buttonText: "", buttonHref: "", image: "" }), image: v })}
+          />
+          {(home.crossSellCTA || { image: "" }).image && (
+            <img src={(home.crossSellCTA || { image: "" }).image} alt="Preview" className="w-full h-24 object-cover rounded-lg" />
+          )}
+        </div>
+      </div>
     </div>
   );
 }
